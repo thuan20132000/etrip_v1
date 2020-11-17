@@ -8,5 +8,9 @@ export default {
     googleMap:'google-maps',
     foods:'food-variant',
     close:'close',
-    swapHorizontal:'swap-horizontal'
+    swapHorizontal:'swap-horizontal',
+
+    deleteSweep:'delete-sweep-outline',
+    clock:'clock-time-eight-outline',
+    information:'information-outline'
 }

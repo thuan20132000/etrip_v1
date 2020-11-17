@@ -2,25 +2,24 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const PATDateTimePicker = () => {
+const PATDateTimePicker = ({mode='date',display='default',onSelected}) => {
 
     const [date, setDate] = useState(new Date(1598051730000));
-    const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setDate(currentDate);
+        onSelected(currentDate);
     };
 
     return (
         <View style={styles.container}>
-            <DateTimePicker
+            <DateTimePicker 
                 testID="dateTimePicker"
                 value={date}
                 mode={mode}
-                is24Hour={true}
-                display="default"
+                display={display}
                 onChange={onChange}
             />
         </View>

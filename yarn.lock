@@ -5975,6 +5975,11 @@
     "color" "^3.1.2"
     "react-native-safe-area-view" "^0.14.9"
 
+"react-native-raw-bottom-sheet@^2.2.0":
+  "integrity" "sha512-qL4JKIqvbcVxbkKzeh51hjV7suoJN3ouxzvLmOg0FBUV1yiJAfEbacjQdtRCI6+OU5pyGFBIifLsTXcFDwHggg=="
+  "resolved" "https://registry.npmjs.org/react-native-raw-bottom-sheet/-/react-native-raw-bottom-sheet-2.2.0.tgz"
+  "version" "2.2.0"
+
 "react-native-reanimated@^1.13.1":
   "integrity" "sha512-3sF46jts9MbktgIasf0sTM8uhOYO5a5Q3YyQ4X1jjSE82n/fY2nW3XTFsLGfLEpK2ir4XSDhQWVgFHazaXZTww=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-1.13.1.tgz"
