@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React,{useState} from 'react'
 import { Dimensions, Keyboard, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { Button, Paragraph, Dialog, Portal, ActivityIndicator } from 'react-native-paper';
-
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CommonColors from '../../constants/CommonColors';
 import CommonIcons from '../../constants/CommonIcons';
-import ProvincePicker from '../Picker/ProvincePicker';
-import PATDateTimePicker from '../Picker/PATDateTimePicker';
-import DayNumberPicker from '../Picker/DayNumberPicker';
-import TourTypePicker from '../Picker/TourTypePicker';
+
+import ProvincePicker from '../../components/Picker/ProvincePicker';
+import PATDateTimePicker from '../../components/Picker/PATDateTimePicker';
+import DayNumberPicker from '../../components/Picker/DayNumberPicker';
+import TourTypePicker from '../../components/Picker/TourTypePicker';
+
+
 
 
 const PickerItem = ({ rightValue, iconName, iconSize, iconColor, name, value, onPress }) => {
@@ -63,8 +65,11 @@ const RenderPickerType = ({ pickerType, onSelected }) => {
 
 
 
+const ScheduleScreen = (props) => {
 
-const ScheduleCreation = ({navigation}) => {
+    const {
+        navigation
+    } = props;
 
     const [pickerType, setPickerType] = useState('PROVINCE');
     const [visible, setVisible] = React.useState(false);
@@ -207,9 +212,10 @@ const ScheduleCreation = ({navigation}) => {
         </TouchableWithoutFeedback>
 
     )
+    
 }
 
-export default ScheduleCreation
+export default ScheduleScreen
 
 const styles = StyleSheet.create({
     pickerItemContainer: {

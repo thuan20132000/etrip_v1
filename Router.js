@@ -7,13 +7,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './screens/HomeScreen';
 import MapScreen from './screens/MapScreen';
-import ScheduleScreen from './screens/ScheduleScreen';
+import ScheduleScreen from './screens/TravelSchedule/ScheduleScreen';
 import AmenityScreen from './screens/AmenityScreen';
 import AccountScreen from './screens/AccountScreen';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import CommonIcons from './constants/CommonIcons';
+import DetailScheduleScreen from './screens/TravelSchedule/DetailScheduleScreen';
+import DetailDayScheduleScreen from './screens/TravelSchedule/DetailDayScheduleScreen';
 
 /**
  * Home Stack
@@ -60,6 +62,14 @@ const ScheduleStack = () => {
             <ScheduleStackNavigator.Screen
                 name="Schedule"
                 component={ScheduleScreen}
+            />
+            <ScheduleStackNavigator.Screen
+                name="DetailSchedule"
+                component={DetailScheduleScreen}
+            />
+            <ScheduleStackNavigator.Screen
+                name="DetailDaySchedule"
+                component={DetailDayScheduleScreen}
             />
         </ScheduleStackNavigator.Navigator>
     )

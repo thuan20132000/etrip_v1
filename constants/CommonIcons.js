@@ -6,5 +6,7 @@ export default {
     account:'account',
 
     googleMap:'google-maps',
-    foods:'food-variant'
+    foods:'food-variant',
+    close:'close',
+    swapHorizontal:'swap-horizontal'
 }
