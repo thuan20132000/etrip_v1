@@ -22,9 +22,11 @@ import {createStore,applyMiddleware, combineReducers} from 'redux';
 import ReduxThunk from 'redux-thunk';
 import Router from './Router';
 import AuthenticationReducer from './store/reducers/AuthenticationReducer';
+import ScheduleReducer from './store/reducers/ScheduleReducer';
 
 const rootReducer  = combineReducers({
-  authentication:AuthenticationReducer
+  authentication:AuthenticationReducer,
+  schedules:ScheduleReducer
 });
 const store = createStore(rootReducer,applyMiddleware(ReduxThunk));
 

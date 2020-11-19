@@ -21,14 +21,17 @@ const DetailDayScheduleScreen = (props) => {
     const [dayVisitLocations, setDayVisitLocations] = useState([]);
 
     const _onAddLocation = async () => {
-            setDayVisitLocations([...dayVisitLocations,{
-                id:randstr('ID'),
-                title:randstr('Location-'),
-                timeString:12,
-                timeNumber:12,
-                price:220000,
-                action_time:'8:00-22:00'
-            }]);
+            // setDayVisitLocations([...dayVisitLocations,{
+            //     id:randstr('ID'),
+            //     title:randstr('Location-'),
+            //     timeString:12,
+            //     timeNumber:12,
+            //     price:220000,
+            //     action_time:'8:00-22:00'
+            // }]);
+
+            props.navigation.navigate('LocationSearch');
+            
     }
 
     const _onRemoveLocation = async (location_id) => {

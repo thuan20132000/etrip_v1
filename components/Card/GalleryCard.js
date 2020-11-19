@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import CommonColors from '../../constants/CommonColors'
@@ -14,18 +14,22 @@ const GalleryCard = (props) => {
         onRemove,
         navigation
     } = props;
-    
+
+    useEffect(() => {
+        console.warn(item);
+    }, []);
+
     return (
         <View style={styles.suggestionScheduleContainer} key={item.id}>
-              <IconButton style={{position:'absolute',zIndex:999,right:-16,top:-16,backgroundColor:CommonColors.primary,width:30,height:30}}
-                    icon={CommonIcons.close}
-                    color={'white'}
-                    size={26}
-                    onPress={() => onRemove(item.id)}
-                />
+            <IconButton style={{ position: 'absolute', zIndex: 999, right: -16, top: -16, backgroundColor: CommonColors.primary, width: 30, height: 30 }}
+                icon={CommonIcons.close}
+                color={'white'}
+                size={26}
+                onPress={() => onRemove(item.id)}
+            />
 
             <TouchableOpacity style={styles.daySchedule}
-                onPress={()=>navigation.navigate('DetailDaySchedule')}
+                onPress={() => navigation.navigate('DetailDaySchedule')}
             >
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 16 }}>
                     <Text>{item.name}</Text>
@@ -42,32 +46,17 @@ const GalleryCard = (props) => {
                     </View>
                 </View>
                 <View style={styles.dayScheduleImagesWrap}>
-                    <Image
-                        style={styles.tinyLogo}
-                        source={{
-                            uri: 'https://kenh14cdn.com/thumb_w/640/2020/7/12/1-15945306107271103537154-crop-15945306667781556089482.jpg',
-                        }}
-                    />
-                    <Image
-                        style={styles.tinyLogo}
-                        source={{
-                            uri: 'https://kenh14cdn.com/thumb_w/640/2020/7/12/1-15945306107271103537154-crop-15945306667781556089482.jpg',
-                        }}
-                    />
-                    <Image
-                        style={styles.tinyLogo}
-                        source={{
-                            uri: 'https://kenh14cdn.com/thumb_w/640/2020/7/12/1-15945306107271103537154-crop-15945306667781556089482.jpg',
-                        }}
-                    />
-                    <Image
-                        style={styles.tinyLogo}
-                        source={{
-                            uri: 'https://kenh14cdn.com/thumb_w/640/2020/7/12/1-15945306107271103537154-crop-15945306667781556089482.jpg',
-                        }}
-                    />
-
-
+                    {
+                        item.locations &&
+                        item.locations.map((e) =>
+                            <Image
+                                style={styles.tinyLogo}
+                                source={{
+                                    uri: 'https://kenh14cdn.com/thumb_w/640/2020/7/12/1-15945306107271103537154-crop-15945306667781556089482.jpg',
+                                }}
+                            />
+                        )
+                    }
 
 
                 </View>
@@ -81,7 +70,7 @@ export default GalleryCard
 const styles = StyleSheet.create({
     suggestionScheduleContainer: {
         margin: 16,
-        zIndex:-1
+        zIndex: -1
     },
     daySchedule: {
         backgroundColor: CommonColors.primary,

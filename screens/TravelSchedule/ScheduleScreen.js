@@ -10,8 +10,11 @@ import ProvincePicker from '../../components/Picker/ProvincePicker';
 import PATDateTimePicker from '../../components/Picker/PATDateTimePicker';
 import DayNumberPicker from '../../components/Picker/DayNumberPicker';
 import TourTypePicker from '../../components/Picker/TourTypePicker';
+import { useDispatch } from 'react-redux';
 
+import * as scheduleActions from '../../store/actions/ScheduleActions';
 
+import {createSchedule} from '../../utils/scheduleApi';
 
 
 const PickerItem = ({ rightValue, iconName, iconSize, iconColor, name, value, onPress }) => {
@@ -71,6 +74,8 @@ const ScheduleScreen = (props) => {
         navigation
     } = props;
 
+    const dispatch = useDispatch();
+
     const [pickerType, setPickerType] = useState('PROVINCE');
     const [visible, setVisible] = React.useState(false);
     const showDialog = () => setVisible(true);
@@ -101,6 +106,8 @@ const ScheduleScreen = (props) => {
                 break;
 
             case 'START_AT':
+                setSchedule({...schedule,start_at:itemSelected.start_at})
+                hideDialog();
 
             case 'DAYNUMBER':
                 setSchedule({...schedule,day_number:itemSelected});
@@ -118,8 +125,21 @@ const ScheduleScreen = (props) => {
     }
 
 
-    const _navigateToDetailSchedule = () => {
-        navigation.navigate('DetailSchedule');
+    const _navigateToDetailSchedule = async () => {
+
+        let scheduleInit = await createSchedule(schedule.province,schedule.start_at,schedule.day_number,schedule.tour_type);
+        if(!scheduleInit.data){
+            return;
+
+        }
+        console.warn(scheduleInit);
+
+
+        let sched = scheduleInit.data;
+        await dispatch(scheduleActions.addSchedule(sched.id,sched.location,sched.start_at,sched.day_number,sched.tour_type));
+
+        
+       navigation.navigate('DetailSchedule',{schedule_id:sched.id});
     }
 
     return (
@@ -145,7 +165,9 @@ const ScheduleScreen = (props) => {
                     iconSize={28}
                     iconColor={CommonColors.primary}
                     rightValue={
-                        <PATDateTimePicker />
+                        <PATDateTimePicker 
+                            onSelected={(datetime)=>setSchedule({...schedule,start_at:datetime})}
+                        />
                     }
 
                 />

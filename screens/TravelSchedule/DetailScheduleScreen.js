@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -6,7 +6,10 @@ import GalleryCard from '../../components/Card/GalleryCard'
 import CommonColors from '../../constants/CommonColors'
 import CommonIcons from '../../constants/CommonIcons'
 
+import {useSelector} from 'react-redux'
 
+import {getDateMonthFormat} from '../../utils/helper';
+import {createDailySchedule} from '../../utils/scheduleApi';
 
 function randstr(prefix)
 {
@@ -15,12 +18,15 @@ function randstr(prefix)
 
 const DetailScheduleScreen = (props) => {
 
+    const schedules = useSelector(state => state.schedules.schedulesData);
 
     const {
-        navigation
+        navigation,
+        route
     } = props;
 
     const [daySchedules, setDaySchedules] = useState([]);
+    const [currentSchedule,setCurrentSchedule] = useState();
 
     let daySchedule  ={
         id:randstr('ID'),
@@ -28,7 +34,14 @@ const DetailScheduleScreen = (props) => {
     }
 
     const _addDaySchedule = async () => {
-        setDaySchedules([...daySchedules,daySchedule])
+
+        let dailySchedule = await createDailySchedule('ngay 1',[],route.params.schedule_id);
+        if(dailySchedule.data){
+            setDaySchedules([...daySchedules,dailySchedule.data]);
+
+        }
+
+
     }
 
     const _removeDaySchedule = async (id) => {
@@ -36,6 +49,13 @@ const DetailScheduleScreen = (props) => {
         setDaySchedules(newDaySchdules);
     }
 
+
+    useEffect(() => {
+        let currentSched_id = route.params.schedule_id;
+        let sched = schedules.find(e => e.id == currentSched_id);
+        setCurrentSchedule(sched);
+        console.warn(sched);
+    }, [])
 
     return (
         <ScrollView
@@ -53,7 +73,7 @@ const DetailScheduleScreen = (props) => {
 
                         />
                         <Text>
-                            1 ngày
+                            {currentSchedule && currentSchedule.days_number} ngày
                         </Text>
                     </View>
                     <View style={styles.groupItem} >
@@ -65,7 +85,7 @@ const DetailScheduleScreen = (props) => {
 
                         />
                         <Text>
-                            5 Địa điểm
+                            {currentSchedule && currentSchedule.location}
                         </Text>
                     </View>
                     <View style={styles.groupItem} >
@@ -77,7 +97,7 @@ const DetailScheduleScreen = (props) => {
 
                         />
                         <Text>
-                            Từ ngày 20/11/2020
+                            Từ ngày {currentSchedule && getDateMonthFormat(currentSchedule.start_at)}
                         </Text>
                     </View>
                 </View>

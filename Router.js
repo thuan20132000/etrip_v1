@@ -16,6 +16,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import CommonIcons from './constants/CommonIcons';
 import DetailScheduleScreen from './screens/TravelSchedule/DetailScheduleScreen';
 import DetailDayScheduleScreen from './screens/TravelSchedule/DetailDayScheduleScreen';
+import LocationSearchScreen from './screens/TravelSchedule/LocationSearchScreen';
 
 /**
  * Home Stack
@@ -70,6 +71,10 @@ const ScheduleStack = () => {
             <ScheduleStackNavigator.Screen
                 name="DetailDaySchedule"
                 component={DetailDayScheduleScreen}
+            />
+            <ScheduleStackNavigator.Screen
+                name="LocationSearch"
+                component={LocationSearchScreen}
             />
         </ScheduleStackNavigator.Navigator>
     )
