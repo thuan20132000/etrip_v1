@@ -1,4 +1,7 @@
+import scheduleModel from "../../Model/scheduleModel";
+
 export const ADD_SCHEDULE = 'ADD_SCHEDULE';
+export const ADD_VISIT_LOCATION = 'ADD_VISIT_LOCATION';
 
 
 
@@ -77,5 +80,31 @@ export const addDailyschedule = (id, locations, schedule_id) => {
 export const updateDailySchedule = () => {
     return async (dispatch) => {
 
+    }
+}
+
+
+export const addVisitLocation = (id, name, price, active_time, image, contact, daily_schedule_id) => {
+    return async (dispatch) => {
+        try {
+            let visitLocation = {
+                id : id,
+                name : name,
+                price : price,
+                active_time : active_time,
+                image : image,
+                contact : contact,
+                daily_schedule_id : daily_schedule_id
+            }
+
+
+            dispatch({
+                type: ADD_VISIT_LOCATION,
+                data: visitLocation
+            })
+
+        } catch (error) {
+            console.warn('ERROR ', error);
+        }
     }
 }

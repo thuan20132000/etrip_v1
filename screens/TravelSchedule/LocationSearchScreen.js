@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import CommonColors from '../../constants/CommonColors';
@@ -7,6 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import SearchItem from '../../components/Items/SearchItem';
 import SimpleBottomSheet from '../../components/BottomSheet/SimpleBottomSheet';
 import CardHorizontal from '../../components/Card/CardHorizontal';
+import CardDetail from '../../components/Card/CardDetail';
 
 
 
@@ -77,9 +78,10 @@ const LocationSearchScreen = (props) => {
     const _refSimpleBottomSheet = useRef();
 
     const _onPressItemSearch = (item) => {
-        console.warn(item);
         _refSimpleBottomSheet.current.open();
     }
+
+    
 
     return (
         <>
@@ -105,8 +107,8 @@ const LocationSearchScreen = (props) => {
                 _refSimpleBottomSheet={_refSimpleBottomSheet}
                 height={Dimensions.get('screen').height}
             >
-               <CardHorizontal
-                
+               <CardDetail
+                    navigation={props.navigation}
                />
             </SimpleBottomSheet>
 

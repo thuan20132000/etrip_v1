@@ -16,6 +16,7 @@ const SimpleBottomSheet = ({children,_refSimpleBottomSheet,height=300}) => {
                 ref={_refSimpleBottomSheet}
                 closeOnDragDown={true}
                 closeOnPressMask={false}
+                dragFromTopOnly={false}
                 height={height}
                 customStyles={{
                     wrapper: {

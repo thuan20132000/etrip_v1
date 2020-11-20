@@ -17,6 +17,7 @@ import CommonIcons from './constants/CommonIcons';
 import DetailScheduleScreen from './screens/TravelSchedule/DetailScheduleScreen';
 import DetailDayScheduleScreen from './screens/TravelSchedule/DetailDayScheduleScreen';
 import LocationSearchScreen from './screens/TravelSchedule/LocationSearchScreen';
+import MySchedulesSreen from './screens/TravelSchedule/MySchedulesSreen';
 
 /**
  * Home Stack
@@ -60,22 +61,29 @@ const ScheduleStackNavigator = createStackNavigator();
 const ScheduleStack = () => {
     return (
         <ScheduleStackNavigator.Navigator>
+
             <ScheduleStackNavigator.Screen
                 name="Schedule"
                 component={ScheduleScreen}
             />
             <ScheduleStackNavigator.Screen
-                name="DetailSchedule"
-                component={DetailScheduleScreen}
+                name="LocationSearch"
+                component={LocationSearchScreen}
             />
+
             <ScheduleStackNavigator.Screen
                 name="DetailDaySchedule"
                 component={DetailDayScheduleScreen}
             />
             <ScheduleStackNavigator.Screen
-                name="LocationSearch"
-                component={LocationSearchScreen}
+                name="MySchedule"
+                component={MySchedulesSreen}
             />
+            <ScheduleStackNavigator.Screen
+                name="DetailSchedule"
+                component={DetailScheduleScreen}
+            />
+
         </ScheduleStackNavigator.Navigator>
     )
 }
@@ -131,11 +139,11 @@ const TabNavigator = () => {
                         iconName = CommonIcons.home
                     } else if (route.name === 'MapStack') {
                         iconName = CommonIcons.map
-                    } else if(route.name === 'ScheduleStack'){
+                    } else if (route.name === 'ScheduleStack') {
                         iconName = CommonIcons.calendar
-                    } else if(route.name === 'AmenityStack'){
+                    } else if (route.name === 'AmenityStack') {
                         iconName = CommonIcons.compass
-                    } else{
+                    } else {
                         iconName = CommonIcons.account
                     }
 

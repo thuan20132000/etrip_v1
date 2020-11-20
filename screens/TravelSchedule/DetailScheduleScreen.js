@@ -11,11 +11,6 @@ import {useSelector} from 'react-redux'
 import {getDateMonthFormat} from '../../utils/helper';
 import {createDailySchedule} from '../../utils/scheduleApi';
 
-function randstr(prefix)
-{
-    return Math.random().toString(36).replace('0.',prefix || '');
-}
-
 const DetailScheduleScreen = (props) => {
 
     const schedules = useSelector(state => state.schedules.schedulesData);
@@ -28,10 +23,7 @@ const DetailScheduleScreen = (props) => {
     const [daySchedules, setDaySchedules] = useState([]);
     const [currentSchedule,setCurrentSchedule] = useState();
 
-    let daySchedule  ={
-        id:randstr('ID'),
-        name:randstr('name ')
-    }
+   
 
     const _addDaySchedule = async () => {
 
@@ -54,7 +46,6 @@ const DetailScheduleScreen = (props) => {
         let currentSched_id = route.params.schedule_id;
         let sched = schedules.find(e => e.id == currentSched_id);
         setCurrentSchedule(sched);
-        console.warn(sched);
     }, [])
 
     return (

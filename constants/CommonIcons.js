@@ -15,5 +15,7 @@ export default {
     information:'information-outline',
 
     search:'magnify',
-    searchLabel:"label-variant"
+    searchLabel:"label-variant",
+    phone:'phone',
+    priceTag:'tag-multiple',
 }

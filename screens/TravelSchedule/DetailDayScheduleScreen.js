@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useLayoutEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import { IconButton } from 'react-native-paper'
+import { useSelector } from 'react-redux'
 import CardHorizontal from '../../components/Card/CardHorizontal'
 import CommonColors from '../../constants/CommonColors'
 import CommonIcons from '../../constants/CommonIcons'
@@ -9,16 +10,11 @@ import CommonIcons from '../../constants/CommonIcons'
 
 
 
-
-function randstr(prefix)
-{
-    return Math.random().toString(36).replace('0.',prefix || '');
-}
-
-
 const DetailDayScheduleScreen = (props) => {
 
     const [dayVisitLocations, setDayVisitLocations] = useState([]);
+
+    const visitLocations = useSelector(state => state.schedules.visitLocationScheduleData);
 
     const _onAddLocation = async () => {
             // setDayVisitLocations([...dayVisitLocations,{
@@ -40,10 +36,15 @@ const DetailDayScheduleScreen = (props) => {
             setDayVisitLocations(newDayVisitLocations);
     }
 
+
     useEffect(() => {
-        let sortedDatVisitLocations = dayVisitLocations.sort(function (a, b) { return a.timeString - b.timeString });
-        setDayVisitLocations(sortedDatVisitLocations);
-    }, [dayVisitLocations])
+        console.warn('sa',visitLocations);
+    },[visitLocations]);
+
+    // useEffect(() => {
+    //     let sortedDatVisitLocations = dayVisitLocations.sort(function (a, b) { return a.timeString - b.timeString });
+    //     setDayVisitLocations(sortedDatVisitLocations);
+    // }, [dayVisitLocations])
 
     return (
         <ScrollView>

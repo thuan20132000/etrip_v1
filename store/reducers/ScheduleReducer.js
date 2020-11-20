@@ -1,6 +1,6 @@
 
 
-import {ADD_SCHEDULE} from '../actions/ScheduleActions';
+import {ADD_SCHEDULE, ADD_VISIT_LOCATION} from '../actions/ScheduleActions';
 
 const initialState = {
     schedulesData:[],
@@ -18,6 +18,12 @@ export default (state = initialState,action) => {
         
             return state;
         
+
+
+        case ADD_VISIT_LOCATION:
+            var visitLocation = action.data;
+            state.visitLocationScheduleData.push(visitLocation);
+            return state;
         default:
             break;
     }

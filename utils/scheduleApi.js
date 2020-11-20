@@ -78,3 +78,21 @@ export const updateDailySchedule = async (id, locations) => {
         }
     }
 }
+
+
+
+export const createVisitLocation = async (name,price,active_time,image,daily_schedule_id,contact) => {
+    try {
+        let id = await generate_id('visitlocation');
+        let visitLocation = new ScheduleModel.VisitLocation(id,name,price,active_time,contact,image,daily_schedule_id);
+        return {
+            data:visitLocation,
+            message:'success'
+        }
+    } catch (error) {
+        return {
+            data:null,
+            message:'failed'+error
+        }
+    }
+}

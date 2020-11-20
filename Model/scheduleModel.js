@@ -24,12 +24,13 @@ class DailySchedule {
 
 
 class VisitLocation{
-    constructor(id,name,price,active_time,image,daily_schedule_id){
+    constructor(id,name,price,active_time,contact,image,daily_schedule_id){
         this.id = id;
         this.name = name;
         this.price = price;
         this.active_time = active_time;
         this.image = image;
+        this.contact = contact;
         this.daily_schedule_id = daily_schedule_id;
     }
 }
