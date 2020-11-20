@@ -12,5 +12,8 @@ export default {
 
     deleteSweep:'delete-sweep-outline',
     clock:'clock-time-eight-outline',
-    information:'information-outline'
+    information:'information-outline',
+
+    search:'magnify',
+    searchLabel:"label-variant"
 }

@@ -1,3 +1,5 @@
 export default {
-    primary:'darksalmon'
+    primary:'darksalmon',
+    light:'#f8f8ff',
+    secondary:'#dcdcdc'
 }

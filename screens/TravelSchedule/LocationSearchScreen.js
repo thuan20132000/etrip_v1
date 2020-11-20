@@ -1,39 +1,87 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Dimensions, StyleSheet, Text, View } from 'react-native'
 import { Searchbar } from 'react-native-paper'
 import CommonColors from '../../constants/CommonColors';
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { ScrollView } from 'react-native-gesture-handler';
+import SearchItem from '../../components/Items/SearchItem';
+import SimpleBottomSheet from '../../components/BottomSheet/SimpleBottomSheet';
+import CardHorizontal from '../../components/Card/CardHorizontal';
 
 
 
-const FirstRoute = () => (
-    <View style={[styles.scene, { backgroundColor: '#ff4081' }]} />
+
+
+const FirstRoute = ({ searchData,onPressItem }) => (
+    <ScrollView style={[styles.scene, { backgroundColor: CommonColors.light }]} >
+        {
+            searchData.map((e, index) =>
+                <SearchItem 
+                    key={index.toString()}
+                    onPress={onPressItem}
+                    item={e}
+
+                />
+            )
+        }
+
+    </ScrollView>
 );
 
 const SecondRoute = () => (
-    <View style={[styles.scene, { backgroundColor: '#673ab7' }]} />
+    <View style={[styles.scene, { backgroundColor: 'gray' }]} >
+    </View>
 );
 
+const ShoppingRoute = () => (
+    <View style={[styles.scene, { backgroundColor: 'gray' }]} />
+)
+
 const initialLayout = { width: Dimensions.get('window').width };
+const renderTabBar = props => (
+    <TabBar
+        {...props}
+        indicatorStyle={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: CommonColors.primary }}
+        labelStyle={{ color: 'white' }}
+    />
+);
 
 
-const LocationSearchScreen = () => {
+const LocationSearchScreen = (props) => {
+
+
     const [searchQuery, setSearchQuery] = useState('');
-
     const onChangeSearch = query => setSearchQuery(query);
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'first', title: 'First' },
-        { key: 'second', title: 'Second' },
+        { key: 'visit', title: 'Tham Quan' },
+        { key: 'eatdrink', title: 'Ăn Uống' },
+        { key: 'shopping', title: 'Mua Sắm' }
     ]);
 
-    const renderScene = SceneMap({
-        first: FirstRoute,
-        second: SecondRoute,
-    });
+
+    const [tabActive, setTabActive] = useState('visit');
+
+    const [searchData, setSearchData] = useState([
+        {
+            id: 1,
+            name: 'banahill'
+        },
+        {
+            id: 2,
+            name: 'cau rong'
+        }
+    ]);
+
+    const _refSimpleBottomSheet = useRef();
+
+    const _onPressItemSearch = (item) => {
+        console.warn(item);
+        _refSimpleBottomSheet.current.open();
+    }
 
     return (
-        // <View>
         <>
             <Searchbar style={{ backgroundColor: CommonColors.primary, color: 'black', margin: 12 }}
 
@@ -43,14 +91,26 @@ const LocationSearchScreen = () => {
 
             />
             <TabView
+                renderTabBar={renderTabBar}
                 navigationState={{ index, routes }}
-                renderScene={renderScene}
+                renderScene={SceneMap({
+                    visit: () => <FirstRoute searchData={searchData} onPressItem={_onPressItemSearch} />,
+                    eatdrink: SecondRoute,
+                    shopping: ShoppingRoute
+                })}
                 onIndexChange={setIndex}
                 initialLayout={initialLayout}
             />
+            <SimpleBottomSheet
+                _refSimpleBottomSheet={_refSimpleBottomSheet}
+                height={Dimensions.get('screen').height}
+            >
+               <CardHorizontal
+                
+               />
+            </SimpleBottomSheet>
 
         </>
-        // </View>
     )
 }
 
