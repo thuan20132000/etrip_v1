@@ -109,6 +109,7 @@ const LocationSearchScreen = (props) => {
             >
                <CardDetail
                     navigation={props.navigation}
+                    _refSimpleBottomSheet={_refSimpleBottomSheet}
                />
             </SimpleBottomSheet>
 

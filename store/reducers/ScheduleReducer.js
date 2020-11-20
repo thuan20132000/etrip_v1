@@ -22,8 +22,10 @@ export default (state = initialState,action) => {
 
         case ADD_VISIT_LOCATION:
             var visitLocation = action.data;
-            state.visitLocationScheduleData.push(visitLocation);
-            return state;
+            var newVisitLocations = [...state.visitLocationScheduleData,visitLocation];
+
+            return {...state,visitLocationScheduleData:newVisitLocations};
+            
         default:
             break;
     }

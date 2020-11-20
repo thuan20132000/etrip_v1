@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './screens/HomeScreen';
-import MapScreen from './screens/MapScreen';
+import MapScreen from './screens/Map/MapScreen';
 import ScheduleScreen from './screens/TravelSchedule/ScheduleScreen';
 import AmenityScreen from './screens/AmenityScreen';
 import AccountScreen from './screens/AccountScreen';
@@ -62,6 +62,12 @@ const ScheduleStack = () => {
     return (
         <ScheduleStackNavigator.Navigator>
 
+            <ScheduleStackNavigator.Screen
+                name="ScheduleList"
+                component={MySchedulesSreen}
+            />
+
+            {/* Create */}
             <ScheduleStackNavigator.Screen
                 name="Schedule"
                 component={ScheduleScreen}

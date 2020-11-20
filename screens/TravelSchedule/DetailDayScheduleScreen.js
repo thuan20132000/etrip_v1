@@ -39,6 +39,7 @@ const DetailDayScheduleScreen = (props) => {
 
     useEffect(() => {
         console.warn('sa',visitLocations);
+        setDayVisitLocations(visitLocations);
     },[visitLocations]);
 
     // useEffect(() => {

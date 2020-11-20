@@ -17,7 +17,7 @@ const RowInformation = ({ children }) => (
     </View>
 )
 
-const CardDetail = ({navigation}) => {
+const CardDetail = ({navigation,_refSimpleBottomSheet}) => {
 
     const dispatch = useDispatch();
 
@@ -33,8 +33,9 @@ const CardDetail = ({navigation}) => {
             visitLcoation.data.contact,
             visitLcoation.data.daily_schedule_id
         ));
-        
-        navigation.popToTop();
+        _refSimpleBottomSheet.current.close();
+        navigation.goBack();
+
 
     }
 
