@@ -17,6 +17,7 @@ const MapScreen = (props) => {
     })
 
     const _getUserLocation = async () => {
+        console.warn('ds');
         Geolocation.requestAuthorization();
         Geolocation.getCurrentPosition((info) => {
             let { coords } = info;
@@ -54,7 +55,7 @@ const MapScreen = (props) => {
             <MapViewDirections
                 origin={origin}
                 destination={destination}
-                apikey={`AIzaSyC2m35hjGX1ojqcEM-agRQtSVJADXDUUJo`}
+                apikey={``}
             />
             <TouchableOpacity style={{ padding: 12, backgroundColor: 'grey' }}
                 onPress={_getUserLocation}
