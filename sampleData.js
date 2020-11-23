@@ -2,33 +2,34 @@
 
 export const favoriteDestinations = [
     {
-        name:'Nhà thờ lớn',
-        slug:'nha-tho-lon',
-        image:'http://media.dulich24.com.vn/diemden/nha-tho-lon-ha-noi-4842/nha-tho-lon-ha-noi-2.jpg',
+        name:'Lavarnia Coffee',
+        slug:'Lavarnia-Coffee',
+        image:'https://lh5.googleusercontent.com/p/AF1QipMPu-AW1nJgInyqjwTXiQbSciyp8xA1OB3P1EKr=w408-h271-k-no',
+        coords:{
+            latitude:16.06555002784379,
+            longitude:108.18345627065865
+
+        }
 
     },
     {
-        name:'Nhà thờ lớn',
-        slug:'nha-tho-lon',
-        image:'http://media.dulich24.com.vn/diemden/nha-tho-lon-ha-noi-4842/nha-tho-lon-ha-noi-2.jpg',
+        name:'Bến xe Trung Tâm',
+        slug:'ben-xe-trung-tam',
+        image:'https://lh5.googleusercontent.com/p/AF1QipPpWcQPhrU0toYCzDrKlD-YINrKXDuIcJAgsruF=w408-h272-k-no',
+        coords:{
+            latitude:16.054414131921536,
+            longitude:108.17449238227418,
+
+        }
         
     },
     {
-        name:'Nhà thờ lớn',
+        name:'Benh vien phoi',
         slug:'nha-tho-lon',
-        image:'http://media.dulich24.com.vn/diemden/nha-tho-lon-ha-noi-4842/nha-tho-lon-ha-noi-2.jpg',
-        
-    },
-    {
-        name:'Nhà thờ lớn',
-        slug:'nha-tho-lon',
-        image:'http://media.dulich24.com.vn/diemden/nha-tho-lon-ha-noi-4842/nha-tho-lon-ha-noi-2.jpg',
-        
-    },
-    {
-        name:'Nhà thờ lớn',
-        slug:'nha-tho-lon',
-        image:'http://media.dulich24.com.vn/diemden/nha-tho-lon-ha-noi-4842/nha-tho-lon-ha-noi-2.jpg',
-        
-    }
+        image:'https://lh5.googleusercontent.com/p/AF1QipOVSROEVDYXVq7N8Uqf8vPwCCsOeYI-b9hWcgiS=w408-h306-k-no',
+        coords:{
+            latitude:16.04885,
+            longitude:108.17088
+        }
+    }, 
 ]

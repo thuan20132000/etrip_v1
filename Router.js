@@ -19,6 +19,7 @@ import DetailDayScheduleScreen from './screens/TravelSchedule/DetailDayScheduleS
 import LocationSearchScreen from './screens/TravelSchedule/LocationSearchScreen';
 import MySchedulesSreen from './screens/TravelSchedule/MySchedulesSreen';
 import DestinationListScreen from './screens/Home/DestinationListScreen';
+import DestinationMapScreen from './screens/Home/DestinationMapScreen';
 
 /**
  * Home Stack
@@ -34,6 +35,10 @@ const HomeStack = () => {
             <HomeStackNavigator.Screen
                 name="DestinationList"
                 component={DestinationListScreen}
+            />
+            <HomeStackNavigator.Screen
+                name="DestinationMap"
+                component={DestinationMapScreen}
             />
         </HomeStackNavigator.Navigator>
     )

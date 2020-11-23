@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Image, StyleSheet, View, Text, Dimensions } from 'react-native'
 import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { Badge,IconButton } from 'react-native-paper'
+import { Badge, IconButton } from 'react-native-paper'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import CommonColors from '../../constants/CommonColors'
@@ -24,7 +24,7 @@ const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
 
 
-const DestinationCard = () => {
+const DestinationCard = ({item,navigation}) => {
 
 
     return (
@@ -34,13 +34,13 @@ const DestinationCard = () => {
 
             <TouchableWithoutFeedback style={{ height: 100, borderRadius: 6, overflow: 'hidden', margin: 6, zIndex: -1 }}
 
-                onPress={()=>console.warn('ds')}
-            
+                onPress={() => console.warn(item)}
+
             >
                 <Image
                     style={{ width: deviceWidth / 3, height: '100%', zIndex: -1 }}
                     source={{
-                        uri: 'https://www.taidanang.com/wp-content/uploads/2018/12/cam-nang-kinh-nghiem-du-lich-bien-my-khe-da-nang-1.jpg',
+                        uri: item.image,
                     }}
                 />
 
@@ -60,15 +60,20 @@ const DestinationCard = () => {
                     icon={CommonIcons.map}
                     name={`860,314m`}
                 />
-                <RowIcon
-                    icon={CommonIcons.map}
-                    name={`Chỉ đường`}
-                />
+                <TouchableOpacity
+                    onPress={()=>navigation.navigate('DestinationMap',{coords:item.coords})}
+                >
+                        <RowIcon
+                            icon={CommonIcons.map}
+                            name={`Chỉ đường`}
+                        />
+                </TouchableOpacity>
+                
 
 
 
             </View>
-            <IconButton style={{position:'absolute',left:100}}
+            <IconButton style={{ position: 'absolute', left: 100 }}
 
                 icon={CommonIcons.heartMutipleOutline}
                 color={'red'}
@@ -85,7 +90,9 @@ const styles = StyleSheet.create({
     cardContainer: {
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        zIndex: -1,
+        borderBottomWidth:0.3
 
     },
     row: {

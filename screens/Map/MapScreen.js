@@ -111,17 +111,14 @@ const MapScreen = (props) => {
                     draggable={true}
                     onDragEnd={(e)=>setMapDestination(e.nativeEvent.coordinate)}
                 />
-                {
-                    directionStatus &&
-                    <MapViewDirections
+                
+                <MapViewDirections
                         origin={mapOrigin}
                         destination={mapDestination}
                         apikey={env.google_map_key}
                         strokeWidth={3}
-                        strokeColor="red"
+                        strokeColor="blue"
                     />
-
-                }
 
             </MapView>
         </>

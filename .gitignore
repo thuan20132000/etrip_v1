@@ -41,7 +41,6 @@ buck-out/
 *.keystore
 !debug.keystore
 
-.env
 
 # fastlane
 #
