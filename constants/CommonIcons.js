@@ -18,4 +18,7 @@ export default {
     searchLabel:"label-variant",
     phone:'phone',
     priceTag:'tag-multiple',
+
+    heartMutipleOutline:'heart-multiple-outline',
+    heartMultiple:'heart-multiple'
 }

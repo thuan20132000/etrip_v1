@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/Home/HomeScreen';
 import MapScreen from './screens/Map/MapScreen';
 import ScheduleScreen from './screens/TravelSchedule/ScheduleScreen';
 import AmenityScreen from './screens/AmenityScreen';
@@ -18,6 +18,7 @@ import DetailScheduleScreen from './screens/TravelSchedule/DetailScheduleScreen'
 import DetailDayScheduleScreen from './screens/TravelSchedule/DetailDayScheduleScreen';
 import LocationSearchScreen from './screens/TravelSchedule/LocationSearchScreen';
 import MySchedulesSreen from './screens/TravelSchedule/MySchedulesSreen';
+import DestinationListScreen from './screens/Home/DestinationListScreen';
 
 /**
  * Home Stack
@@ -29,6 +30,10 @@ const HomeStack = () => {
             <HomeStackNavigator.Screen
                 name="Home"
                 component={HomeScreen}
+            />
+            <HomeStackNavigator.Screen
+                name="DestinationList"
+                component={DestinationListScreen}
             />
         </HomeStackNavigator.Navigator>
     )

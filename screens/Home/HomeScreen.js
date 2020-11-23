@@ -2,16 +2,16 @@ import React, { useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { Caption, Divider } from 'react-native-paper';
-import MenuItem from '../components/Items/MenuItem';
-import SimpleCard from '../components/Items/SimpleCard';
-import SectionTitle from '../components/SectionTitle/SectionTitle';
-import NewsCarousel from '../components/SlideCarousel/NewsCarousel'
-import CommonColors from '../constants/CommonColors';
-import CommonIcons from '../constants/CommonIcons';
+import MenuItem from '../../components/Items/MenuItem';
+import SimpleCard from '../../components/Items/SimpleCard';
+import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import NewsCarousel from '../../components/SlideCarousel/NewsCarousel'
+import CommonColors from '../../constants/CommonColors';
+import CommonIcons from '../../constants/CommonIcons';
 
-import { favoriteDestinations } from '../sampleData';
+import { favoriteDestinations } from '../../sampleData';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
     // const categoryMenu = Array(5).fill({});
     let categoryMenu = [
         {
@@ -38,9 +38,17 @@ const HomeScreen = () => {
     ]
 
 
-    useEffect(() => {
-        console.warn(favoriteDestinations);
-    }, []);
+    // useEffect(() => {
+    //     console.warn(favoriteDestinations);
+    // }, []);
+
+
+    const _onNavigateToDestinationList = (item) => {
+        console.warn(item);
+        props.navigation.navigate('DestinationList');
+    }
+
+
     return (
         <ScrollView style={styles.container}>
             {/* News */}
@@ -52,6 +60,8 @@ const HomeScreen = () => {
                         <MenuItem
                             icon={e.icon}
                             name={e.name}
+                            item={e}
+                            _onPress={_onNavigateToDestinationList}
 
                         />
                     )

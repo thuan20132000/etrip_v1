@@ -5,9 +5,11 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import CommonColors from '../../constants/CommonColors'
 import CommonIcons from '../../constants/CommonIcons'
 
-const MenuItem = ({icon,name}) => {
+const MenuItem = ({icon,name,_onPress,id}) => {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container}
+            onPress={()=>_onPress(id)}
+        >
             <MaterialCommunityIcons
                 name={icon}
                 size={24}
