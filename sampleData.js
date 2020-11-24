@@ -2,6 +2,15 @@
 
 export const favoriteDestinations = [
     {
+        name:'Cong Vien 29/3',
+        slug:'cong-vien-29-3',
+        image:'https://lh5.googleusercontent.com/p/AF1QipOVSROEVDYXVq7N8Uqf8vPwCCsOeYI-b9hWcgiS=w408-h306-k-no',
+        coords:{
+            latitude:16.06580153747441,
+            longitude:108.20446144232818
+        }
+    },
+    {
         name:'Lavarnia Coffee',
         slug:'Lavarnia-Coffee',
         image:'https://lh5.googleusercontent.com/p/AF1QipMPu-AW1nJgInyqjwTXiQbSciyp8xA1OB3P1EKr=w408-h271-k-no',
@@ -32,4 +41,5 @@ export const favoriteDestinations = [
             longitude:108.17088
         }
     }, 
+    
 ]

@@ -15,7 +15,7 @@ const RowIcon = ({ icon, name }) => {
                 size={18}
                 color={CommonColors.primary}
             />
-            <Text style={{ marginHorizontal: 6 }}>{name}</Text>
+            <Text style={{ marginHorizontalt: 6 }}>{name}</Text>
         </View>
     )
 }

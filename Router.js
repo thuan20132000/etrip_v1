@@ -21,6 +21,7 @@ import MySchedulesSreen from './screens/TravelSchedule/MySchedulesSreen';
 import DestinationListScreen from './screens/Home/DestinationListScreen';
 import DestinationMapScreen from './screens/Home/DestinationMapScreen';
 import MapDestinationRouteListScreen from './screens/TravelSchedule/MapDestinationRouteListScreen';
+import SettingAccountScreen from './screens/SettingAccount/SettingAccountScreen';
 
 /**
  * Home Stack
@@ -97,7 +98,7 @@ const ScheduleStack = () => {
                 component={MySchedulesSreen}
             />
             <ScheduleStackNavigator.Screen
-                name="DetailSchedule"
+                name="DetailSchedule"w
                 component={DetailScheduleScreen}
             />
              <ScheduleStackNavigator.Screen
@@ -138,7 +139,7 @@ const AccountStack = () => {
         <AccountStackNavigator.Navigator>
             <AccountStackNavigator.Screen
                 name="Account"
-                component={AccountScreen}
+                component={SettingAccountScreen}
             />
         </AccountStackNavigator.Navigator>
     )

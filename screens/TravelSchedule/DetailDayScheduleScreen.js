@@ -47,7 +47,6 @@ const DetailDayScheduleScreen = (props) => {
 
 
     const _onNavigateToRoutes = () => {
-        console.warn(dayVisitLocations);
         props.navigation.navigate('MapDestinationRoutesList',{
 
         })
