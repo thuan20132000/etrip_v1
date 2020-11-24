@@ -11,6 +11,8 @@ import {useSelector} from 'react-redux'
 import {getDateMonthFormat} from '../../utils/helper';
 import {createDailySchedule} from '../../utils/scheduleApi';
 
+import {favoriteDestinations} from '../../sampleData';
+
 const DetailScheduleScreen = (props) => {
 
     const schedules = useSelector(state => state.schedules.schedulesData);
@@ -43,9 +45,11 @@ const DetailScheduleScreen = (props) => {
 
 
     useEffect(() => {
-        let currentSched_id = route.params.schedule_id;
-        let sched = schedules.find(e => e.id == currentSched_id);
-        setCurrentSchedule(sched);
+        // let currentSched_id = route.params.schedule_id;
+        // let sched = schedules.find(e => e.id == currentSched_id);
+        // setCurrentSchedule(sched);
+        // setDaySchedules(favoriteDestinations);
+
     }, [])
 
     return (
@@ -96,6 +100,7 @@ const DetailScheduleScreen = (props) => {
 
             {/* Suggestion Schedules */}
             <Text style={styles.textTitle}>Lịch trình đề xuất</Text>
+         
             {
                 daySchedules.map((e, index) =>
                     <GalleryCard

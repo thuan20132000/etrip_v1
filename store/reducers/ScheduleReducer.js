@@ -2,10 +2,14 @@
 
 import {ADD_SCHEDULE, ADD_VISIT_LOCATION} from '../actions/ScheduleActions';
 
+
+import {favoriteDestinations} from '../../sampleData';
+
+
 const initialState = {
     schedulesData:[],
     dailySchedulesData:[],
-    visitLocationScheduleData:[],
+    visitLocationScheduleData:favoriteDestinations,
 }
 
 

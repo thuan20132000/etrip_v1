@@ -20,6 +20,7 @@ import LocationSearchScreen from './screens/TravelSchedule/LocationSearchScreen'
 import MySchedulesSreen from './screens/TravelSchedule/MySchedulesSreen';
 import DestinationListScreen from './screens/Home/DestinationListScreen';
 import DestinationMapScreen from './screens/Home/DestinationMapScreen';
+import MapDestinationRouteListScreen from './screens/TravelSchedule/MapDestinationRouteListScreen';
 
 /**
  * Home Stack
@@ -98,6 +99,10 @@ const ScheduleStack = () => {
             <ScheduleStackNavigator.Screen
                 name="DetailSchedule"
                 component={DetailScheduleScreen}
+            />
+             <ScheduleStackNavigator.Screen
+                name="MapDestinationRoutesList"
+                component={MapDestinationRouteListScreen}
             />
 
         </ScheduleStackNavigator.Navigator>

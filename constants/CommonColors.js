@@ -1,5 +1,7 @@
 export default {
     primary:'darksalmon',
     light:'#f8f8ff',
-    secondary:'#dcdcdc'
+    secondary:'#dcdcdc',
+
+    white300:'whitesmoke'
 }

@@ -18,7 +18,8 @@ const CardHorizontal = ({
     action_time = '8:00 - 22:00',
     onRemove,
     dayVisitLocations,
-    setDayVisitLocations
+    setDayVisitLocations,
+    item
 
 }) => {
     const refTimePicker = useRef();
@@ -62,7 +63,7 @@ const CardHorizontal = ({
             >
                 <ImageBackground style={{ width: '100%', height: '100%' }}
                     source={{
-                        uri: 'https://danatravel.vn/data/tour/900/ba-na-1560224326.jpg'
+                        uri: item.image || 'https://danatravel.vn/data/tour/900/ba-na-1560224326.jpg'
                     }}
                 >
                     <Text style={styles.overLayText}>{time}</Text>
@@ -71,7 +72,7 @@ const CardHorizontal = ({
 
 
             <View style={styles.cardBody}>
-                <Text style={styles.text}>{title}</Text>
+                <Text style={styles.text}>{item.name}</Text>
                 <Text> 0VND</Text>
 
                 <View style={styles.row}>

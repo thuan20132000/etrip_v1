@@ -31,14 +31,12 @@ const DetailDayScheduleScreen = (props) => {
     }
 
     const _onRemoveLocation = async (location_id) => {
-            console.warn('location: ',location_id);
             let newDayVisitLocations = dayVisitLocations.filter(e => e.id != location_id);
             setDayVisitLocations(newDayVisitLocations);
     }
 
 
     useEffect(() => {
-        console.warn('sa',visitLocations);
         setDayVisitLocations(visitLocations);
     },[visitLocations]);
 
@@ -46,6 +44,14 @@ const DetailDayScheduleScreen = (props) => {
     //     let sortedDatVisitLocations = dayVisitLocations.sort(function (a, b) { return a.timeString - b.timeString });
     //     setDayVisitLocations(sortedDatVisitLocations);
     // }, [dayVisitLocations])
+
+
+    const _onNavigateToRoutes = () => {
+        console.warn(dayVisitLocations);
+        props.navigation.navigate('MapDestinationRoutesList',{
+
+        })
+    }
 
     return (
         <ScrollView>
@@ -55,7 +61,7 @@ const DetailDayScheduleScreen = (props) => {
                         icon={CommonIcons.map}
                         color={CommonColors.primary}
                         size={32}
-                        onPress={() => console.log('Pressed')}
+                        onPress={_onNavigateToRoutes}
                     />
                     <Text>Xem lộ trình</Text>
                 </View>
@@ -80,6 +86,7 @@ const DetailDayScheduleScreen = (props) => {
                             id={e.id}
                             time={e.timeNumber}
                             title={e.title}
+                            item={e}
                             setDayVisitLocations={setDayVisitLocations}
                             dayVisitLocations={dayVisitLocations}
                             onRemove={_onRemoveLocation}
