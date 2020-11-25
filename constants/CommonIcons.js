@@ -23,5 +23,7 @@ export default {
     heartMultiple:'heart-multiple',
 
     walk:'walk',
-    car:'car-side'
+    car:'car-side',
+
+    arrowToRight:'arrow-right-bold-outline'
 }
