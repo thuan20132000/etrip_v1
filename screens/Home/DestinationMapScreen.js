@@ -23,7 +23,7 @@ const DestinationMapScreen = (props) => {
 
     const [distanceDirection, setDistanceDirection] = useState('');
     const [timeDirection, setTimeDirection] = useState('');
-    const [directionMode,setDirectionMode] = useState('DRIVING');
+    const [directionMode, setDirectionMode] = useState('DRIVING');
 
     const [mapDestination, setMapDestination] = useState({
         latitude: 16.056854,
@@ -69,7 +69,7 @@ const DestinationMapScreen = (props) => {
             setIsLoadingMap(true);
 
         })
-        if(destinationsCoords){
+        if (destinationsCoords) {
             setMapDestination(destinationsCoords);
 
         }
@@ -88,7 +88,7 @@ const DestinationMapScreen = (props) => {
     }
 
     const _onChangeDirectionMode = (mode) => {
-       setDirectionMode(mode);
+        setDirectionMode(mode);
 
     }
 
@@ -97,17 +97,24 @@ const DestinationMapScreen = (props) => {
 
     React.useLayoutEffect(() => {
         props.navigation.setOptions({
-            headerShown:false
+            headerShown: false
         });
+        props.navigation.dangerouslyGetParent().setOptions({
+            tabBarVisible: false
+        });
+
+        return () => {
             props.navigation.dangerouslyGetParent().setOptions({
-                tabBarVisible: false
-            })
-        
+                tabBarVisible: true
+            });
+        }
+
+
     }, [props.navigation]);
 
 
     return (
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={{ flex: 1 }}>
             <View style={{ display: 'flex', flexDirection: 'row', height: 60, backgroundColor: commonColors.white300 }}>
                 <View style={styles.destinationInfo}
 
@@ -130,17 +137,17 @@ const DestinationMapScreen = (props) => {
                     />
                 </View>
 
-                <View style={[styles.destinationInfo,{display:'flex',flexDirection:'row'}]}
+                <View style={[styles.destinationInfo, { display: 'flex', flexDirection: 'row' }]}
 
                 >
-                    <IconButton style={directionMode!='DRIVING'&&{opacity:0.5}}
+                    <IconButton style={directionMode != 'DRIVING' && { opacity: 0.5 }}
                         icon={commonIcons.car}
                         color={commonColors.primary}
-                        
+
                         size={24}
                         onPress={() => _onChangeDirectionMode('DRIVING')}
                     />
-                    <IconButton style={directionMode!='WALKING'&&{opacity:0.5}}
+                    <IconButton style={directionMode != 'WALKING' && { opacity: 0.5 }}
                         icon={commonIcons.walk}
                         color={commonColors.primary}
                         size={24}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, StyleSheet, View, Text, Dimensions } from 'react-native'
 import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { Badge, IconButton } from 'react-native-paper'
@@ -26,6 +26,10 @@ const deviceHeight = Dimensions.get('screen').height;
 
 const DestinationCard = ({item,navigation}) => {
 
+    const [isLike,setIsLike] = useState(false);
+    const _onLike = async () => {
+        setIsLike(!isLike);
+    }
 
     return (
         <View style={[styles.cardContainer]}>
@@ -40,7 +44,7 @@ const DestinationCard = ({item,navigation}) => {
                 <Image
                     style={{ width: deviceWidth / 3, height: '100%', zIndex: -1 }}
                     source={{
-                        uri: item.image,
+                        uri: item?.image||'https://nemtv.vn/wp-content/uploads/2019/03/cau-rong-da-nang-nemtv-16.jpg',
                     }}
                 />
 
@@ -75,10 +79,10 @@ const DestinationCard = ({item,navigation}) => {
             </View>
             <IconButton style={{ position: 'absolute', left: 100 }}
 
-                icon={CommonIcons.heartMutipleOutline}
+                icon={ isLike?CommonIcons.heartMultiple:CommonIcons.heartMutipleOutline}
                 color={'red'}
                 size={20}
-                onPress={() => console.warn('Pressed')}
+                onPress={_onLike}
             />
         </View>
     )

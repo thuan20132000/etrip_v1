@@ -14,26 +14,60 @@ import { favoriteDestinations } from '../../sampleData';
 const HomeScreen = (props) => {
     // const categoryMenu = Array(5).fill({});
     let categoryMenu = [
-        {
+        {   
+            code:'01',
             name: 'Lưu trú',
+            slug:'luu-tru',
             icon: CommonIcons.home
         },
         {
+            code:'02',
+            name:'Thuê xe tự lái',
+            slug:'thue-xe-tu-lai',
+            icon: CommonIcons.car
+        },
+        {
+            code:'03',
+            name:'Thuê tài xế',
+            slug:'thue-tai-xe',
+            icon: CommonIcons.car
+        },
+        {
+            code:'03',
             name: 'Tham quan',
+            slug:'tham-quan',
             icon: CommonIcons.map
         },
         {
+            code:'04',
             name: 'Ẩm thực',
+            slug:'am-thuc',
             icon: CommonIcons.account
         },
         {
+            code:'05',
             name: 'Mua sắm',
+            slug:'mua-sam',
             icon: CommonIcons.map
         },
         {
+            code:'06',
             name: 'Sự kiện',
+            slug:'su-kien',
             icon: CommonIcons.map
         },
+        {
+            code:'07',
+            name: 'Y tế',
+            slug:'y-te',
+            icon: CommonIcons.map
+        },
+        {
+            code:'08',
+            name:'Phản ánh',
+            slug:'phan-anh',
+            icon:CommonIcons.compass
+        }
 
     ]
 
@@ -48,6 +82,28 @@ const HomeScreen = (props) => {
         props.navigation.navigate('DestinationList');
     }
 
+    const _onNavigateDetail = (item) => {
+        props.navigation.navigate('DestinationDetail',{item:item})
+    }
+
+
+    const _onNavigateToSpecificStack = (menuItem) =>  {
+
+        switch (menuItem.slug) {
+            case 'tham-quan':
+                props.navigation.navigate('DestinationList');
+                break;
+            
+            case 'thue-xe-tu-lai':
+                props.navigation.navigate('SelfDrivingHome');
+                break;
+        
+            default:
+                props.navigation.navigate('DestinationList');
+
+        }
+    }
+
 
     return (
         <ScrollView style={styles.container}>
@@ -58,10 +114,11 @@ const HomeScreen = (props) => {
                 {
                     categoryMenu.map((e, index) =>
                         <MenuItem
+                            key={index.toString()}
                             icon={e.icon}
                             name={e.name}
                             item={e}
-                            _onPress={_onNavigateToDestinationList}
+                            _onPress={()=>_onNavigateToSpecificStack(e)}
 
                         />
                     )
@@ -82,7 +139,9 @@ const HomeScreen = (props) => {
                 {
                     favoriteDestinations.map((e, index) =>
                         <SimpleCard
+                            key={index.toString()}
                             name={e.name}
+                            onPress={()=>_onNavigateDetail(e)}
                         />
                     )
                 }

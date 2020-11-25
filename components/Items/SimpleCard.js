@@ -8,10 +8,11 @@ import { Caption, Card, Title } from 'react-native-paper'
 
 const deviceWidth = Dimensions.get('screen').width;
 const deviceHeight = Dimensions.get('screen').height;
-const SimpleCard = ({name,image}) => {
+const SimpleCard = ({name,image,onPress}) => {
+    
     return (
         <TouchableOpacity style={styles.container}
-            onPress={() => console.warn('ds')}
+            onPress={onPress}
         >
             <ImageBackground 
                 source={{
