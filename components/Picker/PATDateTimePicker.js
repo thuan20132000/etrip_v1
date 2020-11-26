@@ -17,11 +17,11 @@ const PATDateTimePicker = ({mode='date',display='default',onSelected}) => {
         <View style={styles.container}>
             <DateTimePicker 
 
-                testID="dateTimePicker"
                 value={date}
                 mode={mode}
                 display={display}
                 onChange={onChange}
+                locale={'vi_VN'}
                 
                 
             />
@@ -34,8 +34,7 @@ export default PATDateTimePicker
 
 const styles = StyleSheet.create({
     container:{
-        width:300,
+        width:200,
         justifyContent:'center',
-        alignSelf:'center',
     }
 })

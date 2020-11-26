@@ -24,6 +24,7 @@ import MapDestinationRouteListScreen from './screens/TravelSchedule/MapDestinati
 import SettingAccountScreen from './screens/SettingAccount/SettingAccountScreen';
 import DestinationDetailScreen from './screens/Home/DestinationDetailScreen';
 import SelfDrivingHomeScreen from './screens/SelfDriving/SelfDrivingHomeScreen';
+import PlaceSearchScreen from './screens/SelfDriving/PlaceSearchScreen';
 
 /**
  * Home Stack
@@ -49,10 +50,33 @@ const HomeStack = () => {
                 component={DestinationDetailScreen}
             />
             <HomeStackNavigator.Screen
+                name="SelfDrivingStack"
+                component={SelfDrivingStack}
+            />
+        </HomeStackNavigator.Navigator>
+    )
+}
+
+
+
+
+const SelfDrivingStackNavigator = createStackNavigator();
+const SelfDrivingStack = () => {
+    return (
+        <SelfDrivingStackNavigator.Navigator
+            screenOptions={{
+                headerShown:false
+            }}
+        >
+            <SelfDrivingStackNavigator.Screen
                 name="SelfDrivingHome"
                 component={SelfDrivingHomeScreen}
             />
-        </HomeStackNavigator.Navigator>
+            <SelfDrivingStackNavigator.Screen
+                name="PlaceSearchScreen"
+                component={PlaceSearchScreen}
+            />
+        </SelfDrivingStackNavigator.Navigator>
     )
 }
 

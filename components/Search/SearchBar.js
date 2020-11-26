@@ -1,16 +1,18 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useRef, createRef } from 'react'
 import { StyleSheet, Text, View,TextInput } from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import CommonColors from '../../constants/CommonColors';
 import CommonIcons from '../../constants/CommonIcons';
 
-const SearchBar = () => {
+const SearchBar = ({setSearchValue,searchValue}) => {
 
-    const [searchValue,setSearchValue] = useState('');
+    const _refInputSearch = createRef();
+    // const [searchValue,setSearchValue] = useState('');
+
 
 
     useEffect(() => {
-        console.warn('ds');
+        _refInputSearch.current.focus();
     }, []);
 
     return (
@@ -22,6 +24,7 @@ const SearchBar = () => {
                 color={CommonColors.primary}
             />
             <TextInput
+                ref={_refInputSearch}
                 style={{ height: 40, borderColor: 'gray', flex:8}}
                 onChangeText={text => setSearchValue(text)}
                 value={searchValue}

@@ -95,7 +95,7 @@ const HomeScreen = (props) => {
                 break;
             
             case 'thue-xe-tu-lai':
-                props.navigation.navigate('SelfDrivingHome');
+                props.navigation.navigate('SelfDrivingStack');
                 break;
         
             default:
@@ -162,6 +162,7 @@ const HomeScreen = (props) => {
                     favoriteDestinations.map((e, index) =>
                         <SimpleCard
                             name={e.name}
+                            key={index.toString()}
                         />
                     )
                 }
