@@ -1165,6 +1165,11 @@
   "resolved" "https://registry.npmjs.org/@react-native-community/masked-view/-/masked-view-0.1.10.tgz"
   "version" "0.1.10"
 
+"@react-native-community/slider@^3.0.3":
+  "integrity" "sha512-8IeHfDwJ9/CTUwFs6x90VlobV3BfuPgNLjTgC6dRZovfCWigaZwVNIFFJnHBakK3pW2xErAPwhdvNR4JeNoYbw=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/slider/-/slider-3.0.3.tgz"
+  "version" "3.0.3"
+
 "@react-native-windows/cli@0.63.3":
   "integrity" "sha512-iTHq3X2LZO/gw3qAqM+WR9K4tY4fct8huSKgG9wohrUY5EBf9yVu7WKG8N6ImO5vAJqCYogvGG4sBSmp+DBu6w=="
   "resolved" "https://registry.npmjs.org/@react-native-windows/cli/-/cli-0.63.3.tgz"

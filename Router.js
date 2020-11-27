@@ -25,6 +25,8 @@ import SettingAccountScreen from './screens/SettingAccount/SettingAccountScreen'
 import DestinationDetailScreen from './screens/Home/DestinationDetailScreen';
 import SelfDrivingHomeScreen from './screens/SelfDriving/SelfDrivingHomeScreen';
 import PlaceSearchScreen from './screens/SelfDriving/PlaceSearchScreen';
+import CarDetailScreen from './screens/SelfDriving/CarDetailScreen';
+import FilterCarScreen from './screens/SelfDriving/FilterCarScreen';
 
 /**
  * Home Stack
@@ -76,6 +78,14 @@ const SelfDrivingStack = () => {
                 name="PlaceSearchScreen"
                 component={PlaceSearchScreen}
             />
+            <SelfDrivingStackNavigator.Screen
+                name="CarDetail"
+                component={CarDetailScreen}
+            />
+            <SelfDrivingStackNavigator.Screen
+                name="FilterCar"
+                component={FilterCarScreen}
+            />
         </SelfDrivingStackNavigator.Navigator>
     )
 }
@@ -96,6 +106,9 @@ const MapStack = () => {
         </MapStackNavigator.Navigator>
     )
 }
+
+
+
 
 
 
@@ -220,7 +233,6 @@ const TabNavigator = () => {
         </TabBottomNavigator.Navigator>
     )
 }
-
 
 
 

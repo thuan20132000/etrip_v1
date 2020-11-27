@@ -43,3 +43,55 @@ export const favoriteDestinations = [
     }, 
     
 ]
+
+
+
+
+
+export const CarForRents = [
+    {
+        id:1,
+        name:'Toyota Fortuner cũ – Máy dầu đời 2015',
+        image:'https://canthoauto.com/wp-content/uploads/2019/02/toyota-fortuner-cu-9.jpg',
+        coords:{
+            latitude:'',
+            longitude:''
+        }
+    },
+    {
+        id:2,
+        name:'Mitsubishi Xpander',
+        image:'https://canthoauto.com/wp-content/uploads/2018/07/mitsubishi-xpander-1.jpg',
+        coords:{
+            latitude:'',
+            longitude:''
+        }
+    },
+    {
+        id:3,
+        name:'Honda CR-V 2020',
+        image:'https://canthoauto.com/wp-content/uploads/2020/07/honda-cr-v-2020-can-tho.jpg',
+        coords:{
+            latitude:'',
+            longitude:''
+        }
+    },
+    {
+        id:4,
+        name:'Mitsubishi Outlander 2020',
+        image:'https://canthoauto.com/wp-content/uploads/2018/01/mitsubishi-outlander-can-tho.jpg',
+        coords:{
+            latitude:'',
+            longitude:''
+        }
+    },
+    {
+        id:5,
+        name:'Toyota Fortuner',
+        image:'https://canthoauto.com/wp-content/uploads/2019/04/Toyota-Fortuner-new.jpg',
+        coords:{
+            latitude:'',
+            longitude:''
+        }
+    }
+]

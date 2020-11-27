@@ -25,5 +25,15 @@ export default {
     walk:'walk',
     car:'car-side',
 
-    arrowToRight:'arrow-right-bold-outline'
+    arrowToRight:'arrow-right-bold-outline',
+
+    starOutline:'star-outline',
+    start:'star',
+
+    tickSquare:'sticker-check-outline',
+
+    filter:'filter-menu-outline',
+    close:'close',
+    squareOutline:'crop-square',
+    squareCheckbox:'check-box-outline'
 }

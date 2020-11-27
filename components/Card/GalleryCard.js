@@ -20,19 +20,19 @@ const GalleryCard = (props) => {
     }, []);
 
     return (
-        <View style={styles.suggestionScheduleContainer} key={item.id}>
+        <View style={styles.suggestionScheduleContainer} key={item?.id}>
             <IconButton style={{ position: 'absolute', zIndex: 999, right: -16, top: -16, backgroundColor: CommonColors.primary, width: 30, height: 30 }}
                 icon={CommonIcons.close}
                 color={'white'}
                 size={26}
-                onPress={() => onRemove(item.id)}
+                onPress={() => onRemove(item?.id)}
             />
 
             <TouchableOpacity style={styles.daySchedule}
                 onPress={() => navigation.navigate('DetailDaySchedule')}
             >
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 16 }}>
-                    <Text>{item.name}</Text>
+                    <Text>{item?.name}</Text>
                     <View style={props.styles} >
                         <MaterialCommunityIcons
                             name={CommonIcons.calendar}
@@ -47,7 +47,7 @@ const GalleryCard = (props) => {
                 </View>
                 <View style={styles.dayScheduleImagesWrap}>
                     {
-                        item.locations &&
+                        item?.locations &&
                         item.locations.map((e) =>
                             <Image
                                 style={styles.tinyLogo}
