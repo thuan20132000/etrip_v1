@@ -19,15 +19,15 @@ const CarDetailScreen = (props) => {
 
 
 
-    React.useLayoutEffect(()=>{
+    React.useLayoutEffect(() => {
         props.navigation.setOptions({
-            headerRight:()=>(
+            headerRight: () => (
                 <TouchableOpacity>
                     <Text>fdsfsd</Text>
                 </TouchableOpacity>
             )
         })
-    },[]);
+    }, []);
 
     return (
         <ScrollView>
@@ -62,13 +62,13 @@ const CarDetailScreen = (props) => {
 
 
                     </View>
-                    <View style={[styles.talkBubble,{position:'relative',bottom:10}]}>
+                    <View style={[styles.talkBubble, { position: 'relative', bottom: 10 }]}>
                         <View style={styles.talkBubbleTriangle} />
                         <View style={styles.talkBubbleSquare}>
                             <Text style={{
                                 color: 'grey'
                             }}>
-                                Xe đẹp, đầy đủ đồ chơi, màn hình 10inch, giải trí thoả thích. 
+                                Xe đẹp, đầy đủ đồ chơi, màn hình 10inch, giải trí thoả thích.
                             </Text>
                         </View>
                     </View>
@@ -76,45 +76,39 @@ const CarDetailScreen = (props) => {
                     {/* Car's Information*/}
                     <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                         <RowItem
+
                             title={"2018"}
                             iconColor={'grey'}
                             titleColor={'grey'}
                             rowStyle={{
-                                width: '50%'
+                                display: 'flex',
+                                flexDirection: 'row'
                             }}
+                            icon={CommonIcons.arrowRefresh}
                         />
                         <RowItem
+
                             title={"2018"}
                             iconColor={'grey'}
                             titleColor={'grey'}
                             rowStyle={{
-                                width: '50%'
+                                display: 'flex',
+                                flexDirection: 'row'
                             }}
+                            icon={CommonIcons.arrowRefresh}
                         />
                         <RowItem
+
                             title={"2018"}
                             iconColor={'grey'}
                             titleColor={'grey'}
                             rowStyle={{
-                                width: '50%'
+                                display: 'flex',
+                                flexDirection: 'row'
                             }}
+                            icon={CommonIcons.arrowRefresh}
                         />
-                        <RowItem
-                            title={"2018"}
-                            iconColor={'grey'}
-                            titleColor={'grey'}
-                            rowStyle={{
-                                width: '50%'
-                            }}
-                        />
-                        <RowItem
-                            title={"2018"}
-                            iconColor={'grey'}
-                            titleColor={'grey'}
-                            rowStyle={{
-                                width: '50%'
-                            }}
-                        />
+
                     </View>
 
                     {/* Policy  */}
@@ -205,12 +199,12 @@ const styles = StyleSheet.create({
         zIndex: -1,
 
     },
-    sectionTitle:{
-        fontSize:18,
-        fontStyle:'normal',
-        fontWeight:'500',
-        color:'grey',
-        marginVertical:6
+    sectionTitle: {
+        fontSize: 18,
+        fontStyle: 'normal',
+        fontWeight: '500',
+        color: 'grey',
+        marginVertical: 6
     }
 
 

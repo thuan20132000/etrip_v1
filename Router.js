@@ -27,6 +27,7 @@ import SelfDrivingHomeScreen from './screens/SelfDriving/SelfDrivingHomeScreen';
 import PlaceSearchScreen from './screens/SelfDriving/PlaceSearchScreen';
 import CarDetailScreen from './screens/SelfDriving/CarDetailScreen';
 import FilterCarScreen from './screens/SelfDriving/FilterCarScreen';
+import ShoppingHomeScreen from './screens/Shopping/ShoppingHomeScreen';
 
 /**
  * Home Stack
@@ -55,19 +56,27 @@ const HomeStack = () => {
                 name="SelfDrivingStack"
                 component={SelfDrivingStack}
             />
+            <HomeStackNavigator.Screen
+                name="ShoppingStack"
+                component={ShoppingStackStack}
+            />
         </HomeStackNavigator.Navigator>
     )
 }
 
 
 
-
+/**
+ * author:thuantruong
+ * created_at:11/2020
+ * description:Stack of Car for rent
+ */
 const SelfDrivingStackNavigator = createStackNavigator();
 const SelfDrivingStack = () => {
     return (
         <SelfDrivingStackNavigator.Navigator
             screenOptions={{
-                headerShown:false
+                headerShown: false
             }}
         >
             <SelfDrivingStackNavigator.Screen
@@ -89,6 +98,31 @@ const SelfDrivingStack = () => {
         </SelfDrivingStackNavigator.Navigator>
     )
 }
+
+
+
+
+/**
+ * author:thuantruong
+ * created_at:30/11/2020
+ * description: Stack of Shopping
+ */
+const ShoppingStackNavigator = createStackNavigator();
+const ShoppingStackStack = () => {
+    return (
+        <ShoppingStackNavigator.Navigator
+            screenOptions={{
+                headerShown: false
+            }}
+        >
+            <ShoppingStackNavigator.Screen
+                name="ShoppingHome"
+                component={ShoppingHomeScreen}
+            />
+        </ShoppingStackNavigator.Navigator>
+    )
+}
+
 
 
 
@@ -145,10 +179,10 @@ const ScheduleStack = () => {
                 component={MySchedulesSreen}
             />
             <ScheduleStackNavigator.Screen
-                name="DetailSchedule"w
+                name="DetailSchedule" w
                 component={DetailScheduleScreen}
             />
-             <ScheduleStackNavigator.Screen
+            <ScheduleStackNavigator.Screen
                 name="MapDestinationRoutesList"
                 component={MapDestinationRouteListScreen}
             />

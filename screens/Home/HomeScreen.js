@@ -14,59 +14,59 @@ import { favoriteDestinations } from '../../sampleData';
 const HomeScreen = (props) => {
     // const categoryMenu = Array(5).fill({});
     let categoryMenu = [
-        {   
-            code:'01',
+        {
+            code: '01',
             name: 'Lưu trú',
-            slug:'luu-tru',
+            slug: 'luu-tru',
             icon: CommonIcons.home
         },
         {
-            code:'02',
-            name:'Thuê xe tự lái',
-            slug:'thue-xe-tu-lai',
+            code: '02',
+            name: 'Thuê xe tự lái',
+            slug: 'thue-xe-tu-lai',
             icon: CommonIcons.car
         },
         {
-            code:'03',
-            name:'Thuê tài xế',
-            slug:'thue-tai-xe',
+            code: '03',
+            name: 'Thuê tài xế',
+            slug: 'thue-tai-xe',
             icon: CommonIcons.car
         },
         {
-            code:'03',
+            code: '03',
             name: 'Tham quan',
-            slug:'tham-quan',
+            slug: 'tham-quan',
             icon: CommonIcons.map
         },
         {
-            code:'04',
+            code: '04',
             name: 'Ẩm thực',
-            slug:'am-thuc',
+            slug: 'am-thuc',
             icon: CommonIcons.account
         },
         {
-            code:'05',
+            code: '05',
             name: 'Mua sắm',
-            slug:'mua-sam',
+            slug: 'mua-sam',
             icon: CommonIcons.map
         },
         {
-            code:'06',
+            code: '06',
             name: 'Sự kiện',
-            slug:'su-kien',
+            slug: 'su-kien',
             icon: CommonIcons.map
         },
         {
-            code:'07',
+            code: '07',
             name: 'Y tế',
-            slug:'y-te',
+            slug: 'y-te',
             icon: CommonIcons.map
         },
         {
-            code:'08',
-            name:'Phản ánh',
-            slug:'phan-anh',
-            icon:CommonIcons.compass
+            code: '08',
+            name: 'Phản ánh',
+            slug: 'phan-anh',
+            icon: CommonIcons.compass
         }
 
     ]
@@ -83,21 +83,25 @@ const HomeScreen = (props) => {
     }
 
     const _onNavigateDetail = (item) => {
-        props.navigation.navigate('DestinationDetail',{item:item})
+        props.navigation.navigate('DestinationDetail', { item: item })
     }
 
 
-    const _onNavigateToSpecificStack = (menuItem) =>  {
+    const _onNavigateToSpecificStack = (menuItem) => {
 
         switch (menuItem.slug) {
             case 'tham-quan':
                 props.navigation.navigate('DestinationList');
                 break;
-            
+
             case 'thue-xe-tu-lai':
                 props.navigation.navigate('SelfDrivingStack');
                 break;
-        
+
+            case 'mua-sam':
+                props.navigation.navigate('ShoppingStack');
+                break;
+
             default:
                 props.navigation.navigate('DestinationList');
 
@@ -118,7 +122,7 @@ const HomeScreen = (props) => {
                             icon={e.icon}
                             name={e.name}
                             item={e}
-                            _onPress={()=>_onNavigateToSpecificStack(e)}
+                            _onPress={() => _onNavigateToSpecificStack(e)}
 
                         />
                     )
@@ -141,7 +145,7 @@ const HomeScreen = (props) => {
                         <SimpleCard
                             key={index.toString()}
                             name={e.name}
-                            onPress={()=>_onNavigateDetail(e)}
+                            onPress={() => _onNavigateDetail(e)}
                         />
                     )
                 }
@@ -183,7 +187,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        marginVertical:16
+        marginVertical: 16
 
     }
 })
