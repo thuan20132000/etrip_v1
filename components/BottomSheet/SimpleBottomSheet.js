@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { View, Button,StyleSheet} from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 
-const SimpleBottomSheet = ({children,_refSimpleBottomSheet,height=300,draggableDown=true}) => {
+const SimpleBottomSheet = ({children,_refSimpleBottomSheet,height=300,draggableDown=true,dragFromTopOnly=false}) => {
     return (
         <View
             style={{
@@ -16,7 +16,7 @@ const SimpleBottomSheet = ({children,_refSimpleBottomSheet,height=300,draggableD
                 ref={_refSimpleBottomSheet}
                 closeOnDragDown={draggableDown}
                 closeOnPressMask={false}
-                dragFromTopOnly={false}
+                dragFromTopOnly={dragFromTopOnly}
                 height={height}
                 customStyles={{
                     wrapper: {

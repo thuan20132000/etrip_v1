@@ -26,6 +26,11 @@ export default {
     car:'car-side',
 
     arrowToRight:'arrow-right-bold-outline',
+    arrowToLeft:'arrow-left-bold-outline',
+    arrowDown:'chevron-down',
+    arrowRightDouble:'chevron-double-right',
+
+    arrowRefresh:'refresh',
 
     starOutline:'star-outline',
     start:'star',

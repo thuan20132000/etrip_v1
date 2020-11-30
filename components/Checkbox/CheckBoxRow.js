@@ -7,7 +7,7 @@ import CommonIcons from '../../constants/CommonIcons'
 
 
 
-const CheckBoxRow = ({ isChecked = true, onCheckToggle,customStyle,iconColor='coral',title }) => {
+const CheckBoxRow = ({ isChecked = true, onCheckToggle,customStyle,iconColor='coral',label = "Lựa chọn" }) => {
 
     const [isCheck, setIsCheck] = useState(isChecked);
     const _onToggleCheckbox = () => {
@@ -37,7 +37,7 @@ const CheckBoxRow = ({ isChecked = true, onCheckToggle,customStyle,iconColor='co
                 />
 
             }
-            <Text>Từ gần tới xa</Text>
+            <Text>{label}</Text>
         </TouchableWithoutFeedback>
     )
 }
