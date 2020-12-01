@@ -5,6 +5,7 @@ import { Divider } from 'react-native-paper'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import CardHorizontal from '../../components/Card/CardHorizontal'
 import DestinationCard from '../../components/Card/DestinationCard'
+import ReviewItem from '../../components/Items/ReviewItem'
 import CommonColors from '../../constants/CommonColors'
 import CommonIcons from '../../constants/CommonIcons'
 
@@ -23,7 +24,7 @@ const RowItem = ({ icon, iconColor, size, title }) => {
             <MaterialCommunityIcons
                 name={icon || CommonIcons.car}
                 size={24}
-                color={iconColor ||CommonColors.primary}
+                color={iconColor || CommonColors.primary}
             />
             <Text style={{
                 fontSize: 10,
@@ -39,23 +40,27 @@ const RowItem = ({ icon, iconColor, size, title }) => {
 
 const DestinationDetailScreen = (props) => {
 
-    const {item} = props.route.params;
+    const { item } = props.route.params;
 
     const _onNavigateToDirection = async () => {
-        props.navigation.navigate('DestinationMap',{coords:item.coords});
+        props.navigation.navigate('DestinationMap', { coords: item.coords });
     }
 
+    
+
     return (
-        <ScrollView>
+        <ScrollView style={{backgroundColor:'white'}}
+        
+        >
             <ImageBackground style={{ width: '100%', height: 220 }}
                 source={{
-                    uri: 'https://nemtv.vn/wp-content/uploads/2019/03/cau-rong-da-nang-nemtv-16.jpg'
+                    uri: item?.image || 'https://nemtv.vn/wp-content/uploads/2019/03/cau-rong-da-nang-nemtv-16.jpg'
                 }}
             >
                 <View style={styles.destinationInfo}>
                     <RowItem
                         icon={CommonIcons.googleMap}
-                        title={`10 Bach Dang, Hai Chau, Da Nang`}
+                        title={ item?.address || `10 Bach Dang, Hai Chau, Da Nang`}
                         iconColor={`white`}
                     />
                     <RowItem
@@ -79,10 +84,10 @@ const DestinationDetailScreen = (props) => {
 
             {/*   */}
             <View>
-                <TouchableOpacity style={{backgroundColor:CommonColors.secondary,padding:12}}
+                <TouchableOpacity style={{ backgroundColor: CommonColors.secondary, padding: 12 }}
                     onPress={_onNavigateToDirection}
                 >
-                    <Text style={{textAlign:'center',fontSize:18}}>Chỉ đường</Text>
+                    <Text style={{ textAlign: 'center', fontSize: 18 }}>Chỉ đường</Text>
                 </TouchableOpacity>
             </View>
             {/* Description */}
@@ -90,31 +95,44 @@ const DestinationDetailScreen = (props) => {
             <Text style={styles.descriptionText}>
                 Đà Nẵng được mệnh danh là thành phố của những cây cầu, sở dĩ vì cứ đi vài cây số người ta lại được nhìn thấy một cây cầu ở thành phố này, mà đó không phải là những cây cầu đơn thuần mà chúng có những nét riêng biệt và sự độc đáo khác lạ chưa từng có ở bất cứ nơi đâu ở Việt Nam. Cầu Rồng phun lửa – phun nước là cây cầu nổi tiếng nhất Đà Nẵng bởi hình dáng độc nhất vô nhị của cây cầu và những điều thú vị gắn liền với cây cầu đó.
             </Text>
-            <Divider/>
+            <Divider />
+
+
+            {/* reviews */}
+            <Text>Đánh giá điạ điểm này</Text>
+            <View style={{padding:18}}>
+                <ReviewItem />
+                <ReviewItem />
+                <ReviewItem />
+                <ReviewItem />
+            </View>
+
+
+
             {/* Nearby Destination */}
             <Text>Đia điểm lân cận</Text>
 
-            <ScrollView style={{marginVertical:60}}
+            <ScrollView style={{ marginVertical: 60 }}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
             >
 
-              <DestinationCard
-                item={item}
-                navigation={props.navigation}
-              />
-              <DestinationCard
-                item={item}
-                navigation={props.navigation}
-              />
-              <DestinationCard
-                item={item}
-                navigation={props.navigation}
-              />
-              <DestinationCard
-                item={item}
-                navigation={props.navigation}
-              />
+                <DestinationCard
+                    item={item}
+                    navigation={props.navigation}
+                />
+                <DestinationCard
+                    item={item}
+                    navigation={props.navigation}
+                />
+                <DestinationCard
+                    item={item}
+                    navigation={props.navigation}
+                />
+                <DestinationCard
+                    item={item}
+                    navigation={props.navigation}
+                />
 
             </ScrollView>
         </ScrollView>
@@ -128,13 +146,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.3)',
         width: '50%',
         marginTop: 42,
-        marginHorizontal:22,
+        marginHorizontal: 22,
         borderRadius: 22
     },
-    descriptionText:{
-        padding:12,
-        fontSize:16,
-        fontWeight:'300',
-        fontStyle:'italic'
+    descriptionText: {
+        padding: 12,
+        fontSize: 16,
+        fontWeight: '300',
+        fontStyle: 'italic'
     }
 })

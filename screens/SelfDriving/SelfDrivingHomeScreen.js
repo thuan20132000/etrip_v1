@@ -1,21 +1,19 @@
-import React, { useState, useEffect, createRef } from 'react'
-import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native'
+import React, { useState, createRef, useLayoutEffect, useEffect } from 'react'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
-import SearchBar from '../../components/Search/SearchBar'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import CommonIcons from '../../constants/CommonIcons'
 import CommonColors from '../../constants/CommonColors'
-import { Modal, Portal, Button, Provider, IconButton } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 import PATDateTimePicker from '../../components/Picker/PATDateTimePicker'
-import CardHorizontal from '../../components/Card/CardHorizontal'
-import SimpleCard from '../../components/Items/SimpleCard'
-import GalleryCard from '../../components/Card/GalleryCard'
+
 import CardVerticle from '../../components/Card/CardVerticle'
 import { CarForRents } from '../../sampleData';
 import SimpleBottomSheet from '../../components/BottomSheet/SimpleBottomSheet'
 import CheckBoxRow from '../../components/Checkbox/CheckBoxRow'
 import Slider from '@react-native-community/slider';
 import RowItem from '../../components/Items/RowItem'
+import RBSheet from "react-native-raw-bottom-sheet";
 
 
 const SelfDrivingHomeScreen = (props) => {
@@ -49,11 +47,12 @@ const SelfDrivingHomeScreen = (props) => {
     }
 
 
-    React.useLayoutEffect(() => {
+    useEffect(() => {
         props.navigation.setOptions({
             headerShown: false,
 
         });
+
         props.navigation.dangerouslyGetParent().setOptions({
             headerRight: () => (
                 <IconButton
@@ -65,6 +64,8 @@ const SelfDrivingHomeScreen = (props) => {
 
             )
         })
+
+
         props.navigation.dangerouslyGetParent().dangerouslyGetParent().setOptions({
             tabBarVisible: false,
 
@@ -77,7 +78,7 @@ const SelfDrivingHomeScreen = (props) => {
         }
 
 
-    }, [props.navigation]);
+    }, []);
 
 
     const [distanceFilter, setDistanceFilter] = useState(false);
@@ -193,10 +194,20 @@ const SelfDrivingHomeScreen = (props) => {
             </ScrollView>
 
             {/* Bottom Sheet */}
-            <SimpleBottomSheet
-                _refSimpleBottomSheet={_refBottomFilter}
+            <RBSheet
+                ref={_refBottomFilter}
                 height={deviceHeight}
                 draggableDown={false}
+                closeOnPressMask={false}
+                dragFromTopOnly={false}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "transparent"
+                    },
+                    draggableIcon: {
+                        backgroundColor: "#000"
+                    }
+                }}
 
 
             >
@@ -445,7 +456,7 @@ const SelfDrivingHomeScreen = (props) => {
 
 
                 </ScrollView>
-            </SimpleBottomSheet>
+            </RBSheet>
 
 
         </View>
@@ -512,7 +523,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         display: 'flex',
         flexDirection: 'row',
-        alignItems:'center'
+        alignItems: 'center'
     },
     textCaption: {
         color: 'grey',

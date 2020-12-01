@@ -28,6 +28,7 @@ import PlaceSearchScreen from './screens/SelfDriving/PlaceSearchScreen';
 import CarDetailScreen from './screens/SelfDriving/CarDetailScreen';
 import FilterCarScreen from './screens/SelfDriving/FilterCarScreen';
 import ShoppingHomeScreen from './screens/Shopping/ShoppingHomeScreen';
+import ShoppingListScreen from './screens/Shopping/ShoppingListScreen';
 
 /**
  * Home Stack
@@ -119,6 +120,11 @@ const ShoppingStackStack = () => {
                 name="ShoppingHome"
                 component={ShoppingHomeScreen}
             />
+            <ShoppingStackNavigator.Screen
+                name="ShoppingList"
+                component={ShoppingListScreen}
+            />
+            
         </ShoppingStackNavigator.Navigator>
     )
 }
