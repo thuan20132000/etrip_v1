@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,SafeAreaView } from 'react-native'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import SearchBar from '../../components/Search/SearchBar'
 
@@ -14,21 +14,22 @@ const ItemSearch = ({ item, selectPlace, navigation }) => {
 
     const _onItemPress = () => {
         selectPlace(item.description);
-        navigation.navigate('SelfDrivingHome',{place:item.description});
-       
+        navigation.navigate('SelfDrivingHome', { place: item.description });
+
     }
 
     return (
-        <TouchableOpacity style={styles.itemSearch}
-            onPress={_onItemPress}
-        >
-            <MaterialCommunityIcons
-                name={CommonIcons.googleMap}
-                color={CommonColors.primary}
-                size={24}
-            />
-            <Text>{item?.description}</Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.itemSearch}
+                onPress={_onItemPress}
+            >
+                <MaterialCommunityIcons
+                    name={CommonIcons.googleMap}
+                    color={CommonColors.primary}
+                    size={24}
+                />
+                <Text>{item?.description}</Text>
+            </TouchableOpacity>
+
     )
 }
 
@@ -67,7 +68,7 @@ const PlaceSearchScreen = (props) => {
 
 
     return (
-        <View>
+        <SafeAreaView>
             <SearchBar
                 searchValue={searchValue}
                 setSearchValue={_onSearchPlaces}
@@ -85,7 +86,7 @@ const PlaceSearchScreen = (props) => {
                     )
                 }
             </ScrollView>
-        </View>
+        </SafeAreaView>
     )
 }
 

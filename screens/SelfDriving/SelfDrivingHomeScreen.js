@@ -50,11 +50,7 @@ const SelfDrivingHomeScreen = (props) => {
 
     useEffect(() => {
         props.navigation.setOptions({
-            headerShown: false,
-
-        });
-
-        props.navigation.dangerouslyGetParent().setOptions({
+            headerShown: true,
             headerRight: () => (
                 <IconButton
                     icon={CommonIcons.filter}
@@ -62,24 +58,31 @@ const SelfDrivingHomeScreen = (props) => {
                     size={30}
                     onPress={() => _refBottomFilter.current.open()}
                 />
-
             )
-        })
 
+        });
+        props.navigation.dangerouslyGetParent().setOptions({
+            headerShown: false,
+
+        });
+
+
+     
 
         props.navigation.dangerouslyGetParent().dangerouslyGetParent().setOptions({
             tabBarVisible: false,
-
         });
 
         return () => {
             props.navigation.dangerouslyGetParent().dangerouslyGetParent().setOptions({
                 tabBarVisible: true
             });
+
+          
         }
 
 
-    },);
+    });
 
 
 
@@ -103,7 +106,9 @@ const SelfDrivingHomeScreen = (props) => {
     }
 
     return (
-        <View>
+        <View style={{backgroundColor:'white'}}
+        
+        >
             {/* <SearchBar /> */}
 
 
@@ -140,7 +145,7 @@ const SelfDrivingHomeScreen = (props) => {
 
             </TouchableOpacity>
 
-            <View style={styles.row}>
+            <View style={[styles.row,{backgroundColor:'transparent'}]}>
                 <View style={styles.timePickerBlock}
 
                 >
@@ -189,20 +194,11 @@ const SelfDrivingHomeScreen = (props) => {
             </ScrollView>
 
             {/* Bottom Sheet */}
-            <RBSheet
-                ref={_refBottomFilter}
-                height={deviceHeight}
-                draggableDown={false}
-                closeOnPressMask={false}
-                dragFromTopOnly={false}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "transparent"
-                    },
-                    draggableIcon: {
-                        backgroundColor: "#000"
-                    }
-                }}
+            <SimpleBottomSheet
+                 _refSimpleBottomSheet={_refBottomFilter}
+                 height={deviceHeight}
+                 draggableDown={false}
+                 dragFromTopOnly={true}
 
 
             >
@@ -451,7 +447,7 @@ const SelfDrivingHomeScreen = (props) => {
 
 
                 </ScrollView>
-            </RBSheet>
+            </SimpleBottomSheet>
 
 
         </View>
@@ -481,6 +477,16 @@ const styles = StyleSheet.create({
         padding: 14,
         borderRadius: 16,
         paddingLeft: 22,
+        backgroundColor: 'white',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
     searchContainer: {
         display: 'flex',
@@ -489,7 +495,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
         margin: 6,
-        alignContent: 'center'
+        alignContent: 'center',
+        backgroundColor: 'white',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
     filterContainer: {
         padding: 12

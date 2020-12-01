@@ -156,14 +156,21 @@ const DestinationMapScreen = (props) => {
                 </View>
 
             </View>
-            <MapView style={{ display: 'flex', flex: 1 }}
+            <MapView style={{ flex: 1}}
                 showsUserLocation={true}
                 region={
                     mapOrigin
                 }
                 provider={PROVIDER_GOOGLE}
                 ref={_mapRef}
-                mapType={'satellite'}
+                mapType={'terrain'}
+                minZoomLevel={10}
+                maxZoomLevel={18}
+                loadingEnabled={true}
+                loadingBackgroundColor={'coral'}
+                showsBuildings={false}
+                userLocationAnnotationTitle={'as'}
+                onMapReady={()=>console.warn('f dvds')}
             >
 
                 <Marker

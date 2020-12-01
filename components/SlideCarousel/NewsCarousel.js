@@ -9,9 +9,12 @@ import {CarForRents} from '../../sampleData';
 
 const CarouselCard = ({item}) => {
     return (
-        <Card>
+        <Card >
 
-            <Card.Cover source={{ uri: item.image }} />
+            <Card.Cover  
+                source={{ uri: item.image }} 
+                resizeMode={'contain'}
+            />
 
         </Card>
 

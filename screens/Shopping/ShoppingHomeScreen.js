@@ -58,7 +58,7 @@ const ShoppingItem = ({
             >
                 <Text style={{ color: CommonColors.primary, marginHorizontal: 6 }}>120</Text>
                 <MaterialCommunityIcons
-                    name={isLiked?CommonIcons.heartMultiple:CommonIcons.heartMutipleOutline}
+                    name={isLiked?CommonIcons.likeThumb:CommonIcons.likeThumbOutline}
                     color={CommonColors.primary}
                     size={22}
                 />

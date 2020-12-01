@@ -40,5 +40,9 @@ export default {
     filter:'filter-menu-outline',
     close:'close',
     squareOutline:'crop-square',
-    squareCheckbox:'check-box-outline'
+    squareCheckbox:'check-box-outline',
+
+    likeThumbOutline:'thumb-up-outline',
+    likeThumb:'thumb-up',
+    dislikeThumb:'thumb-down-outline'
 }

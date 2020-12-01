@@ -266,7 +266,7 @@ const TabNavigator = () => {
             }}
         >
             <TabBottomNavigator.Screen name="HomeStack" component={HomeStack} />
-            <TabBottomNavigator.Screen name="MapStack" component={MapStack} />
+            {/* <TabBottomNavigator.Screen name="MapStack" component={MapStack} /> */}
             <TabBottomNavigator.Screen name="ScheduleStack" component={ScheduleStack} />
             <TabBottomNavigator.Screen name="AmenityStack" component={AmenityStack} />
             <TabBottomNavigator.Screen name="AccountStack" component={AccountStack} />
