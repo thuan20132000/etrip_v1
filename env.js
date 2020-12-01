@@ -1,3 +1,3 @@
 export default {
-    google_map_key:'AIzaSyDpD2rEHXx_JtZVTeu8MuBHblngw-aJA-c'
+    google_map_key:''
 }
