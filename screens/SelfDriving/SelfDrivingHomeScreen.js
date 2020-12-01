@@ -28,7 +28,8 @@ const SelfDrivingHomeScreen = (props) => {
     const carYears = Array(10).fill({});
 
     const userLocation = props.route.params?.place;
-
+    const [distanceFilter, setDistanceFilter] = useState(false);
+    const [priceFilter, setPriceFilter] = useState('');
     const [filterData, setFilterData] = useState({
         orderByDistance: 'nearToFar',
         orderByPrice: 'increase',
@@ -78,16 +79,10 @@ const SelfDrivingHomeScreen = (props) => {
         }
 
 
-    }, []);
+    },);
 
 
-    const [distanceFilter, setDistanceFilter] = useState(false);
 
-    // useEffect(() => {
-    //     console.warn('distance: ', distanceFilter);
-    // }, [distanceFilter]);
-
-    const [priceFilter, setPriceFilter] = useState('');
     const _onFilterDayPriceChange = (price) => {
 
         let x = Math.floor(price * 10);
