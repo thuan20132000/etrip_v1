@@ -7,17 +7,12 @@ import DestinationCard from '../../components/Card/DestinationCard'
 import {favoriteDestinations} from '../../sampleData';
 
 
-const DestinationListScreen = (props) => {
-
+const StayListScreen = (props) => {
     const [number, setNumber] = useState(12);
 
     const [isLoading, setIsLoading] = useState(false);
     const [selectedId, setSelectedId] = useState('');
 
-
-    useEffect(() => {
-        console.warn(favoriteDestinations);
-    }, []);
 
     const FooterLoading = () => {
         return (
@@ -41,11 +36,11 @@ const DestinationListScreen = (props) => {
 
 
     useEffect(() => {
-        props.navigation.dangerouslyGetParent().setOptions({
+        props.navigation.dangerouslyGetParent().dangerouslyGetParent().setOptions({
             tabBarVisible: false
         })
         return () => {
-            props.navigation.dangerouslyGetParent().setOptions({
+            props.navigation.dangerouslyGetParent().dangerouslyGetParent().setOptions({
                 tabBarVisible: true
             })
 
@@ -85,12 +80,6 @@ const DestinationListScreen = (props) => {
     )
 }
 
-export default DestinationListScreen
+export default StayListScreen
 
-const styles = StyleSheet.create({
-    filterBarContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-
-    }
-})
+const styles = StyleSheet.create({})

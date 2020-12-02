@@ -29,6 +29,8 @@ import CarDetailScreen from './screens/SelfDriving/CarDetailScreen';
 import FilterCarScreen from './screens/SelfDriving/FilterCarScreen';
 import ShoppingHomeScreen from './screens/Shopping/ShoppingHomeScreen';
 import ShoppingListScreen from './screens/Shopping/ShoppingListScreen';
+import StayListScreen from './screens/Stay/StayListScreen';
+import CarPriceDetailScreen from './screens/SelfDriving/CarPriceDetailScreen';
 
 /**
  * Home Stack
@@ -42,8 +44,8 @@ const HomeStack = () => {
                 component={HomeScreen}
             />
             <HomeStackNavigator.Screen
-                name="DestinationList"
-                component={DestinationListScreen}
+                name="StayStack"
+                component={StayStack}
             />
             <HomeStackNavigator.Screen
                 name="DestinationMap"
@@ -62,6 +64,23 @@ const HomeStack = () => {
                 component={ShoppingStackStack}
             />
         </HomeStackNavigator.Navigator>
+    )
+}
+
+
+const StayStackNavigator = createStackNavigator();
+const StayStack = () => {
+    return (
+        <StayStackNavigator.Navigator
+            screenOptions={{
+                headerShown:false
+            }}
+        >
+            <StayStackNavigator.Screen
+                name="StayList"
+                component={StayListScreen}
+            />
+        </StayStackNavigator.Navigator>
     )
 }
 
@@ -95,6 +114,10 @@ const SelfDrivingStack = () => {
             <SelfDrivingStackNavigator.Screen
                 name="FilterCar"
                 component={FilterCarScreen}
+            />
+            <SelfDrivingStackNavigator.Screen
+                name="CarPriceDetail"
+                component={CarPriceDetailScreen}
             />
         </SelfDrivingStackNavigator.Navigator>
     )

@@ -9,23 +9,49 @@ export const getProvince = async () => {
     try {
         let url = `https://raw.githubusercontent.com/madnh/hanhchinhvn/master/dist/tinh_tp.json`;
         let fetchData = await fetch(url);
-        if(!fetchData.ok){
-            return{
-                data:[],
-                message:'Error at fetch province'
+        if (!fetchData.ok) {
+            return {
+                data: [],
+                message: 'Error at fetch province'
             }
         }
         let resData = await fetchData.json();
-        
+
         return {
-            data:resData,
-            message:'Fetch province data successfully.'
+            data: resData,
+            message: 'Fetch province data successfully.'
         }
-        
+
     } catch (error) {
         return {
-            data:[],
-            message:'Error at fetch province ' + error
+            data: [],
+            message: 'Error at fetch province ' + error
+        }
+    }
+}
+
+
+export const getDistrict = async () => {
+    try {
+        let url = `https://raw.githubusercontent.com/thuan20132000/hanhchinhDANANG/main/districts`;
+        let fetchData = await fetch(url);
+        if (!fetchData.ok) {
+            return {
+                data: [],
+                message: 'Error at fetch province'
+            }
+        }
+        let resData = await fetchData.json();
+
+        return {
+            data: resData,
+            message: 'Fetch province data successfully.'
+        }
+
+    } catch (error) {
+        return {
+            data: [],
+            message: 'Error at fetch province ' + error
         }
     }
 }
@@ -42,29 +68,29 @@ export const getPlaceAutoComplete = async (searchText) => {
     try {
         let url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${searchText}&location=16.047079,108.206230&radius=500&language=vi&key=`;
         let fetchData = await fetch(`${url}${env.google_map_key}`);
-        if(!fetchData.ok){
+        if (!fetchData.ok) {
             return {
-                data:[],
-                message:'Error at get place completely',
-                status:false
+                data: [],
+                message: 'Error at get place completely',
+                status: false
             }
         }
 
         let resData = await fetchData.json();
 
         return {
-            data:resData,
-            message:'get places successfully',
-            status:true
+            data: resData,
+            message: 'get places successfully',
+            status: true
         }
 
-        
+
 
     } catch (error) {
         return {
-            data:[],
-            message:'Error at get place completely',
-            status:false
+            data: [],
+            message: 'Error at get place completely',
+            status: false
         }
     }
 }

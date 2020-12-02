@@ -22,14 +22,14 @@ const HomeScreen = (props) => {
         },
         {
             code: '02',
-            name: 'Thuê xe tự lái',
-            slug: 'thue-xe-tu-lai',
+            name: 'Xe tự lái',
+            slug: 'xe-tu-lai',
             icon: CommonIcons.car
         },
         {
             code: '03',
-            name: 'Thuê tài xế',
-            slug: 'thue-tai-xe',
+            name: 'Tài xế',
+            slug: 'tai-xe',
             icon: CommonIcons.car
         },
         {
@@ -90,11 +90,14 @@ const HomeScreen = (props) => {
     const _onNavigateToSpecificStack = (menuItem) => {
 
         switch (menuItem.slug) {
+            case 'luu-tru':
+                props.navigation.navigate('StayStack');
+                break;
             case 'tham-quan':
                 props.navigation.navigate('DestinationList');
                 break;
 
-            case 'thue-xe-tu-lai':
+            case 'xe-tu-lai':
                 props.navigation.navigate('SelfDrivingStack');
                 break;
 

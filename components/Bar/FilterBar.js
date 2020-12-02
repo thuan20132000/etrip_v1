@@ -4,10 +4,49 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 
-const FilterBar = () => {
+const FilterBar = ({}) => {
 
     const [area, setArea] = useState('all');
     const [price,setPrice] = useState('any');
+
+
+    let districts = [
+        {
+            label:'Tất cả',
+            value:'all'
+        },
+        {
+            label:'Quận Liên Chiểu',
+            value:'490'
+        },
+        {
+            label:'Quận Thanh Khê',
+            value:'491'
+        },
+        {
+            label:'Quận Hải Châu',
+            value:'492'
+        },
+        {
+            label:'Quận Sơn Trà',
+            value:'493'
+        },
+        {
+            label:'Quận Ngũ Hành sơn',
+            value:'494'
+        },
+        {
+            label:'Quận Cẩm Lệ',
+            value:'495'
+        },
+        {
+            label:'Huyện Hoà Vang',
+            value:'496'
+        },
+    ]
+    
+
+
 
     return (
 
@@ -15,12 +54,7 @@ const FilterBar = () => {
 
             <DropDownPicker style={styles.dropdownWrap}
                 
-                items={[
-                    { label: 'Tất cả', value: 'all' },
-                    { label: 'USA', value: 'usa' },
-                    { label: 'UK', value: 'uk'},
-                    { label: 'France', value: 'france' },
-                ]}
+                items={districts}
                 defaultValue={area}
                 containerStyle={{ height: 40 }}
                 itemStyle={{
