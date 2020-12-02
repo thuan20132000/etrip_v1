@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useEffect,useState } from 'react'
+import { StyleSheet, Text, View,Button } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import auth from '@react-native-firebase/auth';
 
 
 
@@ -16,6 +17,34 @@ const RowItem = ({ title, value, itemStyle }) => {
 
 const CarPriceDetailScreen = (props) => {
 
+
+    // If null, no SMS has been sent
+    const [confirm, setConfirm] = useState(null);
+
+    const [code, setCode] = useState('');
+
+    // Handle the button press
+    async function signInWithPhoneNumber(phoneNumber) {
+        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+        setConfirm(confirmation);
+    }
+
+    async function confirmCode() {
+        try {
+            await confirm.confirm(code);
+        } catch (error) {
+            console.log('Invalid code.');
+        }
+    }
+
+    if (!confirm) {
+        return (
+            <Button
+                title="Phone Number Sign In"
+                onPress={() => signInWithPhoneNumber('+')}
+            />
+        );
+    }
 
 
 
@@ -36,10 +65,16 @@ const CarPriceDetailScreen = (props) => {
 
 
 
+
+
     return (
         <ScrollView style={{ padding: 12 }}
 
         >
+
+            <TextInput value={code} onChangeText={text => setCode(text)} />
+            <Button title="Confirm Code" onPress={() => confirmCode()} />
+
             <View style={styles.rowBlock}>
                 <RowItem
                     title={'Giá thuê'}
@@ -117,7 +152,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5,
-        marginVertical:6
+        marginVertical: 6
 
     },
     rowItem: {

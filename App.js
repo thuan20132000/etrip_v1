@@ -23,6 +23,7 @@ import ReduxThunk from 'redux-thunk';
 import Router from './Router';
 import AuthenticationReducer from './store/reducers/AuthenticationReducer';
 import ScheduleReducer from './store/reducers/ScheduleReducer';
+import firebase from '@react-native-firebase/app'
 
 const rootReducer  = combineReducers({
   authentication:AuthenticationReducer,
@@ -30,7 +31,23 @@ const rootReducer  = combineReducers({
 });
 const store = createStore(rootReducer,applyMiddleware(ReduxThunk));
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAHU3NZGy6TD9AWZKCxZxSrAyKnHW_pOSQ",
+  authDomain: "etrip-v1.firebaseapp.com",
+  databaseURL: "https://etrip-v1.firebaseio.com",
+  projectId: "etrip-v1",
+  storageBucket: "etrip-v1.appspot.com",
+  messagingSenderId: "1048102605710",
+  appId: "1:1048102605710:web:e67111da04962b87948adf",
+  measurementId: "G-MQM0461X42"
+
+}
+
+
 const App = () => {
+  firebase.initializeApp(firebaseConfig);
+
   return (
     <StoreProvider store={store}>
       <PaperProvider>
