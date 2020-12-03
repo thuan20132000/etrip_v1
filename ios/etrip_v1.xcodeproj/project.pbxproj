@@ -16,6 +16,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* etrip_v1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* etrip_v1Tests.m */; };
 		5FFEC4924612BF43095DACD3 /* libPods-etrip_v1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D4466D726CF8DF85859076 /* libPods-etrip_v1.a */; };
+		664884942578A44A0011747A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 664884932578A44A0011747A /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AE3741D042B650C1A3330778 /* libPods-etrip_v1-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F58BC5860AB369DDA72CC9B9 /* libPods-etrip_v1-tvOS.a */; };
 		C5D7DCB2DB9A15D3F92E7AD2 /* libPods-etrip_v1-etrip_v1Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DA01160E2D2E0A3D338DD5 /* libPods-etrip_v1-etrip_v1Tests.a */; };
@@ -71,6 +72,7 @@
 		663E8795255E951E00E3774A /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		663E8796255E951E00E3774A /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		663E8797255E951F00E3774A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		664884932578A44A0011747A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A1D44E7196DD43BF2DF1BDA /* Pods-etrip_v1-etrip_v1Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-etrip_v1-etrip_v1Tests.release.xcconfig"; path = "Target Support Files/Pods-etrip_v1-etrip_v1Tests/Pods-etrip_v1-etrip_v1Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6C0D4C7ED270251A29044302 /* libPods-etrip_v1-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-etrip_v1-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = etrip_v1/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				664884932578A44A0011747A /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* etrip_v1 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* etrip_v1Tests */,
@@ -391,6 +394,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				664884942578A44A0011747A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

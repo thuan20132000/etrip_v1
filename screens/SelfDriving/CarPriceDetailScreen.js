@@ -26,7 +26,8 @@ const CarPriceDetailScreen = (props) => {
     // Handle the button press
     async function signInWithPhoneNumber(phoneNumber) {
         const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
-        setConfirm(confirmation);
+        console.warn(confirmation);
+      //  setConfirm(confirmation);
     }
 
     async function confirmCode() {
@@ -41,7 +42,7 @@ const CarPriceDetailScreen = (props) => {
         return (
             <Button
                 title="Phone Number Sign In"
-                onPress={() => signInWithPhoneNumber('+')}
+                onPress={() => signInWithPhoneNumber('+84976904548')}
             />
         );
     }
