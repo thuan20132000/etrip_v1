@@ -169,6 +169,7 @@ const SelfDrivingHomeScreen = (props) => {
                     <PATDateTimePicker
                         onSelected={setStartDate}
                         mode={'datetime'}
+                    
                     />
                 </View>
 

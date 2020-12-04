@@ -16,12 +16,13 @@ const PATDateTimePicker = ({mode='date',display='default',onSelected}) => {
     return (
         <View style={styles.container}>
             <DateTimePicker 
-
+                
                 value={date}
                 mode={mode}
-                display={display}
+                display={'compact'}
                 onChange={onChange}
                 locale={'vi_VN'}
+                
                 
                 
             />
